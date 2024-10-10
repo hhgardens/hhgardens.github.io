@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heather Hill Gardens</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KM8F42HYKY"></script>
     <script>
@@ -23,16 +24,44 @@
             <img src="images/HHBannerClearMedium.jpg" alt="HeatherHillBanner" class="w-full h-auto">
         </header>
 
-        <nav class="bg-green-200 p-4 rounded-lg mb-6">
-            <ul class="flex justify-center space-x-4 text-green-800">
-                <li><a href="#" class="hover:text-green-600">Home</a></li>
-                <li><a href="FavoritePlants.htm" class="hover:text-green-600">Favorite Plants</a></li>
-                <li><a href="Recipes.html" class="hover:text-green-600">Recipes</a></li>
-                <li><a href="GardeningLinks.htm" class="hover:text-green-600">Gardening Links</a></li>
-                <li><a href="Directions.htm" class="hover:text-green-600">Directions</a></li>
-                <li><a href="About Us.htm" class="hover:text-green-600">About Us</a></li>
-                <li><a href="ContactUs.htm" class="hover:text-green-600">Contact Us</a></li>
-            </ul>
+        <nav x-data="{ open: false }" class="bg-green-200 rounded-lg mb-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="hidden md:block">
+                            <div class="flex items-baseline space-x-4">
+                                <a href="#" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                                <a href="FavoritePlants.htm" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">Favorite Plants</a>
+                                <a href="Recipes.html" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">Recipes</a>
+                                <a href="GardeningLinks.htm" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">Gardening Links</a>
+                                <a href="Directions.htm" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">Directions</a>
+                                <a href="About Us.htm" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+                                <a href="ContactUs.htm" class="text-green-800 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex md:hidden">
+                        <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-200 focus:ring-white">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="open" class="md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                    <a href="FavoritePlants.htm" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Favorite Plants</a>
+                    <a href="Recipes.html" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Recipes</a>
+                    <a href="GardeningLinks.htm" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Gardening Links</a>
+                    <a href="Directions.htm" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Directions</a>
+                    <a href="About Us.htm" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                    <a href="ContactUs.htm" class="text-green-800 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
+                </div>
+            </div>
         </nav>
 
         <main class="bg-white p-6 rounded-lg shadow-lg">
