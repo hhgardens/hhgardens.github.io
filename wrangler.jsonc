@@ -9,6 +9,9 @@
   },
 
   "routes": [
-    { "pattern": "new2.heatherhillgardens.com", "custom_domain": true }
+    {
+      "pattern": "new.heatherhillgardens.com",
+      "custom_domain": true
+    }
   ]
 }
