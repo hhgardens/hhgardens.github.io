@@ -1,0 +1,75 @@
+{
+  "intro": "Herbs are the heroes of the garden world. Collect them, grow them, and then make yummy food and drinks with them! Try out our yummy recipes. If you have a great recipe you want to share, email it to heatherhillgardener@gmail.com.",
+  "recipes": [
+    {
+      "name": "Amalfi Lemon Rosemary Muffins",
+      "herbs": ["Rosemary", "Lemon"],
+      "pdf": "/recipes/Amalfi Lemon Rosemary Muffins.pdf"
+    },
+    {
+      "name": "Apple Thyme Cake",
+      "herbs": ["Thyme"],
+      "pdf": "/recipes/Apple Thyme Cake.pdf"
+    },
+    {
+      "name": "Bruschetta with Fresh Basil",
+      "herbs": ["Basil"],
+      "pdf": "/recipes/BruschettaWithFreshBasil.pdf"
+    },
+    {
+      "name": "Cinco de Mayo Herb & Orange Muffins",
+      "herbs": ["Mixed Herbs", "Orange"],
+      "pdf": "/recipes/Cinco de Mayo Herb and Orange Muffins.pdf"
+    },
+    {
+      "name": "Devonshire Cheese Puffs with Thyme and Rosemary",
+      "herbs": ["Thyme", "Rosemary"],
+      "pdf": "/recipes/Devonshire Cheese PuffswithThymeandRosemary.pdf"
+    },
+    {
+      "name": "Frittata with Herbs",
+      "herbs": ["Mint", "Thyme", "Rosemary", "Parsley"],
+      "pdf": "/recipes/Frittata With Herbs.pdf"
+    },
+    {
+      "name": "Genovese Basil Pesto",
+      "herbs": ["Basil"],
+      "pdf": "/recipes/Genovese Basil Pesto.pdf"
+    },
+    {
+      "name": "Herbed Baby Potato Salad",
+      "herbs": ["Parsley", "Cilantro", "Tarragon"],
+      "pdf": "/recipes/Herbed Baby Potato Salad.pdf"
+    },
+    {
+      "name": "Italian Herb Blends",
+      "herbs": ["Oregano", "Basil", "Rosemary", "Thyme"],
+      "pdf": "/recipes/Italian Herb Blends with OreganoBasilRosemaryandThyme.pdf"
+    },
+    {
+      "name": "Lavender Lemonade",
+      "herbs": ["Lavender"],
+      "pdf": "/recipes/Lavender Lemonade.pdf"
+    },
+    {
+      "name": "Real Hot Salsa with Cilantro",
+      "herbs": ["Cilantro"],
+      "pdf": "/recipes/Real Hot Salsa.pdf"
+    },
+    {
+      "name": "Spinach Sweet Bread",
+      "herbs": ["Parsley", "Thyme", "Rosemary", "Mint"],
+      "pdf": "/recipes/Spinach Sweet Bread.pdf"
+    },
+    {
+      "name": "Tuscan Baked Artichoke Hearts",
+      "herbs": ["Parsley", "Italian Herbs"],
+      "pdf": "/recipes/Tuscan Artichoke Hearts.pdf"
+    },
+    {
+      "name": "Victorian Lavender Cream Scones",
+      "herbs": ["Lavender"],
+      "pdf": "/recipes/Victorian Lavender Cream Scones.pdf"
+    }
+  ]
+}

@@ -24,7 +24,7 @@ export function recipesPage(ctx: PageContext): string {
       <h1 class="page-title">Herb Recipes</h1>
       <p class="page-subtitle">${recipes.intro}</p>
 
-      <div class="gallery-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-2xl);">
+      <div class="gallery-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-bottom: var(--space-2xl);">
         <div class="gallery-item">
           <img src="/images/BasilGenovese.jpg" alt="Basil Genovese" loading="lazy">
           <div class="gallery-caption">Basil</div>

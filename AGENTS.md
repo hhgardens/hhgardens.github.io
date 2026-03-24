@@ -3,7 +3,7 @@
 This workspace contains the current live site and the new Cloudflare Worker site under development for Heather Hill Gardens Productions LLC.
 
 - Current live site: https://heatherhillgardens.com/
-- New Worker site: https://new.heatherhillgardens.com/
+- New Worker site: https://new2.heatherhillgardens.com/
 
 The new site is the primary workspace target. It is a Cloudflare Worker serving static assets from `public/` with routing handled in `src/index.ts`.
 
@@ -11,16 +11,30 @@ The new site is the primary workspace target. It is a Cloudflare Worker serving 
 
 ```
 heatherhillgardens/
-├── public/                    # Static site assets and HTML
-│   └── assets/web/            # CSS, JS, thumbnails, hero clip
-├── scripts/video-pipeline.mjs # Video compression, hero, previews, R2 upload
-├── src/index.ts               # Cloudflare Worker entry point
-├── videos/
-│   ├── manifest.json          # Pipeline config (sources, outputs, hero, previews)
-│   ├── uncompressed/          # Raw source videos (gitignored)
-│   └── compressed/            # Compressed outputs and preview clips
-├── wrangler.jsonc             # Cloudflare config for the new site
+├── content/                   # JSON content layer
+│   ├── site.json              # Business info, contact, SEO
+│   ├── seasons.json           # Seasonal presets (closed/spring/fall)
+│   ├── plants.json            # All plant data
+│   ├── recipes.json           # Recipe list with PDF paths
+│   └── redirects.json         # Legacy URL redirect map
+├── public/                    # Static assets (images, PDFs, favicons)
+│   ├── images/                # Plant, property, and seasonal photos
+│   └── recipes/               # Downloadable recipe PDFs
+├── src/
+│   ├── index.ts               # Cloudflare Worker entry point & routing
+│   ├── types.ts               # TypeScript interfaces
+│   ├── templates/layout.ts    # Shared HTML layout, nav, footer, CSS
+│   └── pages/                 # Page-specific HTML generators
+│       ├── home.ts            # Seasonal homepage
+│       ├── plants.ts          # Consolidated plants page
+│       ├── recipes.ts         # Recipe downloads
+│       ├── potting-parties.ts # Service page
+│       ├── visit.ts           # Directions + contact
+│       ├── about.ts           # About the nursery
+│       └── 404.ts             # Not found page
+├── wrangler.jsonc             # Cloudflare config (new2.heatherhillgardens.com)
 ├── package.json               # Scripts and tooling
+├── MIGRATION.md               # Legacy page migration inventory
 └── AGENTS.md                  # This file
 ```
 

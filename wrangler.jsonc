@@ -1,0 +1,14 @@
+{
+  // Heather Hill Gardens – Cloudflare Worker
+  "name": "heatherhillgardens",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-24",
+
+  "assets": {
+    "directory": "./public"
+  },
+
+  "routes": [
+    { "pattern": "new2.heatherhillgardens.com", "custom_domain": true }
+  ]
+}
