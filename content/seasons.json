@@ -1,5 +1,5 @@
 {
-  "activeSeason": "closed",
+  "activeSeason": "spring",
   "presets": {
     "closed": {
       "heroHeadline": "Closed for the Season",
@@ -12,14 +12,17 @@
       "announcement": null
     },
     "spring": {
-      "heroHeadline": "Our Season Has Begun!",
-      "heroBody": "It's time to dream a little about your garden and planters. What's your vision?",
+      "heroHeadline": "Our 2026 Season Is Here!",
+      "heroBody": "We open Friday, April 3rd — come see us!",
       "heroBodyExtra": "Come see us to talk about your ideas and visions. We can help make your planting dreams a reality. Start your season by planting early pansies and perennials; plant perennials once and enjoy them season after season! Love the deer but would rather not feed them with your plantings? We can help with that. Come see us!",
       "ctaText": "Visit Us This Weekend",
       "ctaHref": "/visit/",
-      "heroImages": ["/images/2025/spring_flowers.png", "/images/2025/spring_flower_display.jpg"],
-      "hours": "Wed–Fri noon–5pm · Sat 9:30am–5pm · Sun 11am–5pm",
-      "announcement": "Spring perennials and pansies are in!"
+      "heroImages": [
+        "/images/2025/spring_flowers.png",
+        "/images/2025/spring_flower_display.jpg"
+      ],
+      "hours": "Wed–Fri noon–5:00pm · Sat 9:30am–5:00pm · Sun 11am–5:00pm",
+      "announcement": "Our 2026 season opens April 3rd!"
     },
     "fall": {
       "heroHeadline": "Celebrate Fall!",
@@ -27,7 +30,11 @@
       "heroBodyExtra": "We have orange pumpkins and those special white pumpkins that seem to take Fall decor up a notch. Whether you want to carve your pumpkins, decorate them with paint and markers, or just enjoy their natural beauty, we have what you need. Now is the time to plant mums or scatter pots of mums around your porch, your deck, or your yard. It's also time to plant winter pansies! These hardy plants will add color to your yard through the winter and into the spring.",
       "ctaText": "Come See Our Fall Display",
       "ctaHref": "/visit/",
-      "heroImages": ["/images/2024/Pumpkin Display.jpg", "/images/fall/PumpkinsAndMums.jpg", "/images/2022/flowers.jpg"],
+      "heroImages": [
+        "/images/2024/Pumpkin Display.jpg",
+        "/images/fall/PumpkinsAndMums.jpg",
+        "/images/2022/flowers.jpg"
+      ],
       "hours": "Wed–Fri noon–5pm · Sat 10am–5pm · Sun 11am–5pm",
       "announcement": "Pumpkins, mums, and winter pansies are here!"
     }
