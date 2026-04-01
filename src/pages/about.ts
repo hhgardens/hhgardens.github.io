@@ -20,7 +20,7 @@ export function aboutPage(ctx: PageContext): string {
       <div style="max-width: var(--content-width); margin: 0 auto;">
         <h2 class="section-title">What We Grow</h2>
         <p style="margin-bottom:var(--space-lg); line-height:1.8; font-size:0.975rem;">
-          We specialize in unusual and distinctive perennials, hostas, herbs, and annuals — plants chosen specifically for Virginia gardens. Our collection includes over 60 herb varieties, more than 20 hosta cultivars, and a carefully curated selection of perennials that thrive in our climate.
+          We specialize in unusual and distinctive perennials, hostas, herbs, and annuals — plants chosen specifically for Virginia gardens. We're especially proud of our native plant selections, species indigenous to Northern Virginia that support local pollinators and thrive naturally in our soil and climate. Our collection includes over 60 herb varieties, more than 20 hosta cultivars, and a carefully curated selection of perennials.
         </p>
         <p style="margin-bottom:var(--space-lg); line-height:1.8; font-size:0.975rem;">
           We're proud to carry <strong>Proven Winners®</strong> plants and work closely with suppliers who share our commitment to quality. Whether you're looking for deer-resistant perennials, shade-loving hostas, or fresh herbs for your kitchen garden, we can help you find exactly what you need.
@@ -38,8 +38,8 @@ export function aboutPage(ctx: PageContext): string {
           </div>
           <div class="card">
             <div class="card-body">
-              <h3>Potting Parties</h3>
-              <p>Book a private potting party for your garden club, book club, or family. We provide the plants, soil, and expertise.</p>
+              <h3>Native Plants</h3>
+              <p>We carry plants native to Northern Virginia — species that support local pollinators and thrive in our climate with minimal care.</p>
             </div>
           </div>
           <div class="card">

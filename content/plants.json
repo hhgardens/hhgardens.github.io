@@ -1,5 +1,5 @@
 {
-  "intro": "Even though we are surrounded by beautiful plants all day, we can't help choosing favorites each season. Come in and tell us about your growing conditions (sun, drainage, other plantings) and we'll help you choose the plants that are right for your Virginia gardens and containers.",
+  "intro": "Even though we are surrounded by beautiful plants all day, we can't help choosing favorites each season. We're proud to carry native plants suited to Northern Virginia — species that thrive in our climate and support local pollinators. Come in and tell us about your growing conditions (sun, drainage, other plantings) and we'll help you choose the plants that are right for your Virginia gardens and containers.",
   "categories": [
     {
       "id": "annuals",
@@ -14,7 +14,7 @@
     {
       "id": "perennials",
       "name": "Perennials",
-      "description": "Perennials are plants that will return each season, living year after year.",
+      "description": "Perennials are plants that will return each season, living year after year. Look for our native selections — plants indigenous to Northern Virginia that support local ecosystems and are naturally adapted to our soil and climate.",
       "whyUseThem": "Perennials are helpers in your garden. Once you plant your perennials, they will come up each year without the work and expense of shopping and planting. In addition, perennials provide a structure for your garden so that you can showcase annuals, containers, or your favorite yard art. Once they are established, some perennials will grow large enough to divide, giving you a new plant for somewhere else in your yard. Come on in and we'll show you how.",
       "pageIntro": "We just love perennials. They take so much of the work out of gardening. Plant them once and enjoy them for years to come. Great for gardens and containers! Our collection has been selected to thrive in Northern Virginia. Call for availability.",
       "image": "/images/PerennialforFavePlants.jpg",
@@ -22,8 +22,8 @@
       "plants": [
         {
           "name": "Heuchera (Coral Bells)",
-          "description": "Also known as coral bells, Heuchera boasts brightly colored leaves for ten months of the year and dainty flowers in early summer. They are terrific in containers and in the garden; we like to mix them with hostas and ferns. These hardworking favorites make a wonderful border and thrive in shade or part shade.",
-          "tags": ["shade", "part-shade", "containers"],
+          "description": "Also known as coral bells, Heuchera boasts brightly colored leaves for ten months of the year and dainty flowers in early summer. They are terrific in containers and in the garden; we like to mix them with hostas and ferns. These hardworking favorites make a wonderful border and thrive in shade or part shade. Native.",
+          "tags": ["shade", "part-shade", "containers", "native"],
           "varieties": [
             {
               "name": "Black Currant",
@@ -159,12 +159,36 @@
       "image": "/images/HerbTableforWeb.jpg",
       "imageCaption": "Herb Table",
       "featuredImages": [
-        { "src": "/images/BasilGenovese.jpg", "alt": "Basil Genovese", "caption": "Basil - Genovese" },
-        { "src": "/images/BasilPerpetuoVariegated.jpg", "alt": "Basil Perpetuo Variegated", "caption": "Basil - Perpetuo Variegated" },
-        { "src": "/images/ParsleyCurly.jpg", "alt": "Parsley Curly", "caption": "Parsley - Curly" },
-        { "src": "/images/ParsleyFlat.jpg", "alt": "Parsley Flat", "caption": "Parsley - Flat" },
-        { "src": "/images/Peppermint.jpg", "alt": "Peppermint", "caption": "Peppermint" },
-        { "src": "/images/SageTricolor.jpg", "alt": "Sage Tricolor", "caption": "Sage - Tricolor" }
+        {
+          "src": "/images/BasilGenovese.jpg",
+          "alt": "Basil Genovese",
+          "caption": "Basil - Genovese"
+        },
+        {
+          "src": "/images/BasilPerpetuoVariegated.jpg",
+          "alt": "Basil Perpetuo Variegated",
+          "caption": "Basil - Perpetuo Variegated"
+        },
+        {
+          "src": "/images/ParsleyCurly.jpg",
+          "alt": "Parsley Curly",
+          "caption": "Parsley - Curly"
+        },
+        {
+          "src": "/images/ParsleyFlat.jpg",
+          "alt": "Parsley Flat",
+          "caption": "Parsley - Flat"
+        },
+        {
+          "src": "/images/Peppermint.jpg",
+          "alt": "Peppermint",
+          "caption": "Peppermint"
+        },
+        {
+          "src": "/images/SageTricolor.jpg",
+          "alt": "Sage Tricolor",
+          "caption": "Sage - Tricolor"
+        }
       ],
       "plants": [
         { "name": "Basil", "variety": "Genovese" },
@@ -265,21 +289,42 @@
         }
       ],
       "gallery": [
-        { "src": "/images/HostaBlueMouseEars.jpg", "name": "Blue Mouse Ears Hosta" },
-        { "src": "/images/HostaCrackerCrumbs.jpg", "name": "Cracker Crumbs Hosta" },
+        {
+          "src": "/images/HostaBlueMouseEars.jpg",
+          "name": "Blue Mouse Ears Hosta"
+        },
+        {
+          "src": "/images/HostaCrackerCrumbs.jpg",
+          "name": "Cracker Crumbs Hosta"
+        },
         { "src": "/images/HostaDragontails.jpg", "name": "Dragontails Hosta" },
         { "src": "/images/HostaEarthAngel.jpg", "name": "Earth Angel Hosta" },
         { "src": "/images/HostaEmpressWu.jpg", "name": "Empress Wu Hosta" },
         { "src": "/images/HostaFirstFrost.jpg", "name": "First Frost Hosta" },
         { "src": "/images/HostaFrancee.jpg", "name": "Francee Hosta" },
-        { "src": "/images/HostaFrostedMouseEars.jpg", "name": "Frosted Mouse Ears Hosta" },
-        { "src": "/images/HostaHolyMouseEars.jpg", "name": "Holy Mouse Ears Hosta" },
+        {
+          "src": "/images/HostaFrostedMouseEars.jpg",
+          "name": "Frosted Mouse Ears Hosta"
+        },
+        {
+          "src": "/images/HostaHolyMouseEars.jpg",
+          "name": "Holy Mouse Ears Hosta"
+        },
         { "src": "/images/HostaJune.jpg", "name": "June Hosta" },
-        { "src": "/images/HostaStainedGlass.jpg", "name": "Stained Glass Hosta" },
+        {
+          "src": "/images/HostaStainedGlass.jpg",
+          "name": "Stained Glass Hosta"
+        },
         { "src": "/images/HostaLiberty2.jpg", "name": "Liberty Hosta" },
-        { "src": "/images/HostaLimeSmoothie.jpg", "name": "Lime Smoothie Hosta" },
+        {
+          "src": "/images/HostaLimeSmoothie.jpg",
+          "name": "Lime Smoothie Hosta"
+        },
         { "src": "/images/HostaMillenium.jpg", "name": "Millenium Hosta" },
-        { "src": "/images/HostaOrangeMarmalade.jpg", "name": "Orange Marmalade Hosta" },
+        {
+          "src": "/images/HostaOrangeMarmalade.jpg",
+          "name": "Orange Marmalade Hosta"
+        },
         { "src": "/images/HostaPaulsGlory.jpg", "name": "Paul's Glory Hosta" },
         { "src": "/images/HostaPixieVamp.jpg", "name": "Pixie Vamp Hosta" }
       ],

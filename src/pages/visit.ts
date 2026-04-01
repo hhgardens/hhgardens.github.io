@@ -46,7 +46,7 @@ export function visitPage(ctx: PageContext): string {
     <div class="cta-section">
       <h2 class="section-title">Questions?</h2>
       <p class="section-intro">
-        Whether you need gardening advice, want to plan a potting party, or have a special request — we're here to help.
+        Whether you need gardening advice or have a special request — we’re here to help.
       </p>
       <div class="cta-buttons">
         <a href="mailto:${site.email}" class="btn btn-primary">Email Us</a>

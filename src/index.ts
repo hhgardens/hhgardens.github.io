@@ -7,7 +7,6 @@ import { layout } from "./templates/layout";
 import { homePage } from "./pages/home";
 import { plantsPage } from "./pages/plants";
 import { recipesPage } from "./pages/recipes";
-import { pottingPartiesPage } from "./pages/potting-parties";
 import { visitPage } from "./pages/visit";
 import { aboutPage } from "./pages/about";
 import { notFoundPage } from "./pages/404";
@@ -49,6 +48,8 @@ export default {
     let description = siteData.metaDescription;
 
     switch (path) {
+      case "/potting-parties":
+        return Response.redirect(new URL("/", url.origin).toString(), 301);
       case "/":
         title = `${siteData.name} — ${season.heroHeadline}`;
         pageContent = homePage(ctx);
@@ -62,11 +63,6 @@ export default {
         title = `Herb Recipes — ${siteData.name}`;
         description = "Download our favorite herb recipes — from lavender lemonade to genovese basil pesto.";
         pageContent = recipesPage(ctx);
-        break;
-      case "/potting-parties":
-        title = `Potting Parties — ${siteData.name}`;
-        description = "Book a private potting party at Heather Hill Gardens. We provide the plants, soil, and expertise — you bring the fun.";
-        pageContent = pottingPartiesPage(ctx);
         break;
       case "/visit":
         title = `Visit Us — ${siteData.name}`;

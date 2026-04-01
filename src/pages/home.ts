@@ -40,13 +40,13 @@ export function homePage(ctx: PageContext): string {
             <p>Perennials, hostas, herbs, and annuals — chosen for Virginia gardens.</p>
           </div>
         </a>
-        <a href="/potting-parties" class="card" style="text-decoration:none;">
+        <a href="/plants" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
-            <img src="/images/HappyPlantChooser.jpg" alt="Potting party fun" loading="lazy">
+            <img src="/images/BaptisiaCarolinaMoonlight (2).jpg" alt="Native Baptisia in bloom" loading="lazy">
           </div>
           <div class="card-body">
-            <h3>Potting Parties</h3>
-            <p>Bring your friends, your containers, and your creativity.</p>
+            <h3>Native Plants</h3>
+            <p>Northern Virginia natives that thrive in our climate — beautiful, resilient, and low-maintenance.</p>
           </div>
         </a>
         <a href="/recipes" class="card" style="text-decoration:none;">

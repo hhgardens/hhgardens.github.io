@@ -13,7 +13,6 @@ const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/plants", label: "Plants" },
   { href: "/recipes", label: "Recipes" },
-  { href: "/potting-parties", label: "Potting Parties" },
   { href: "/visit", label: "Visit" },
   { href: "/about", label: "About" },
 ];
@@ -704,6 +703,11 @@ a:hover { color: var(--sage-dark); }
   font-size: 0.75rem;
   font-weight: 500;
   margin: 2px;
+}
+.tag-native {
+  background: #2d6a4f;
+  color: #fff;
+  font-weight: 600;
 }
 
 /* ---- Dividers ---- */

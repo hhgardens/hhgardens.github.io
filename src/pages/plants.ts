@@ -96,7 +96,7 @@ export function plantsPage(ctx: PageContext): string {
             )
             .join("");
           const tags = (p.tags || [])
-            .map((t) => `<span class="tag">${t}</span>`)
+            .map((t) => `<span class="tag${t === 'native' ? ' tag-native' : ''}">${t === 'native' ? '🌿 Native' : t}</span>`)
             .join("");
           return `
           <div style="margin-bottom:var(--space-2xl); padding-bottom:var(--space-xl); border-bottom:1px solid var(--border);">
