@@ -112,6 +112,7 @@ export function layout({ title, description, content, site, season, activeSeason
       <div class="footer-col">
         <h3>${site.name}</h3>
         <p>${site.address}</p>
+        <p><a href="${site.googleMapsUrl}" target="_blank" rel="noopener">Get Directions &rarr;</a></p>
         <p><a href="tel:${site.phone.replace(/\./g, "-")}">${site.phone}</a></p>
         <p><a href="mailto:${site.email}">${site.email}</a></p>
       </div>
@@ -179,14 +180,16 @@ const CSS = `
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
   color: var(--text);
   background: var(--cream);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+a, button { -webkit-tap-highlight-color: rgba(74, 103, 65, 0.15); }
 /* Paper grain texture */
 body::after {
   content: '';
@@ -578,6 +581,22 @@ a:hover { color: var(--sage-dark); }
   line-height: 1.65;
 }
 
+/* ---- Plant List ---- */
+.plant-list {
+  columns: 2;
+  column-gap: var(--space-xl);
+  list-style: none;
+}
+.plant-list li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  break-inside: avoid;
+  border-bottom: 1px solid var(--border);
+}
+.plant-list li:last-child { border-bottom: none; }
+.plant-name { font-weight: 500; color: var(--text); }
+.plant-variety { color: var(--text-light); font-style: italic; }
+
 /* ---- Gallery ---- */
 .gallery-grid {
   display: grid;
@@ -822,22 +841,24 @@ a:hover { color: var(--sage-dark); }
 
   .hero-inner {
     grid-template-columns: 1fr;
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-xl) var(--space-lg);
+    gap: var(--space-lg);
   }
-  .hero-text h1 { font-size: 2.2rem; }
+  .hero-text h1 { font-size: 2rem; }
   .hero-images {
-    order: -1;
     padding: var(--space-sm);
   }
   .hero-images img {
-    transform: rotate(1deg);
-    box-shadow: 5px 5px 0 var(--petal);
+    transform: rotate(0.8deg);
+    box-shadow: 4px 4px 0 var(--petal);
   }
   .hero-images img:nth-child(even) {
-    transform: rotate(-0.8deg);
-    box-shadow: -5px 5px 0 var(--petal);
+    transform: rotate(-0.5deg);
+    box-shadow: -4px 4px 0 var(--petal);
   }
+  .hero-images.single img { max-height: 280px; }
   .hero-images.multi { grid-template-columns: 1fr 1fr; }
+  .hero-images.multi img { height: 180px; }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
   .info-grid { grid-template-columns: 1fr; }
@@ -845,8 +866,10 @@ a:hover { color: var(--sage-dark); }
   .page-title { font-size: 2rem; }
   .section-title { font-size: 1.5rem; }
   .card-grid-3 { grid-template-columns: 1fr; }
+  .card-img-wrap { height: 180px; }
+  .card-image { height: 180px; }
   .photo-grid-2 { grid-template-columns: 1fr; }
-  .photo-grid-2 img { height: 240px; }
+  .photo-grid-2 img { height: 220px; }
 
   .nav-toggle { display: flex; }
   .nav-links {
@@ -860,43 +883,45 @@ a:hover { color: var(--sage-dark); }
     padding: var(--space-lg);
     border-bottom: 1px solid var(--border);
     box-shadow: 0 8px 28px rgba(58, 50, 38, 0.1);
-    gap: var(--space-md);
-    align-items: flex-start;
+    gap: 0;
+    align-items: stretch;
   }
   .nav-links.open { display: flex; }
+  .nav-link {
+    padding: 0.75rem var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-link:last-child { border-bottom: none; }
   .nav-link::after { display: none; }
+
+  .recipe-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
 }
 
 @media (max-width: 480px) {
   html { font-size: 15px; }
-  .hero-text h1 { font-size: 1.9rem; }
-  .hero-inner { padding: var(--space-xl) var(--space-md); }
+  .hero-text h1 { font-size: 1.75rem; }
+  .hero-inner { padding: var(--space-lg) var(--space-md); gap: var(--space-md); }
+  .hero-images.single img { max-height: 220px; }
+  .hero-images.multi { grid-template-columns: 1fr; }
+  .hero-images.multi img { height: 200px; }
   .page-section,
   .page-section-narrow { padding: var(--space-xl) var(--space-md); }
   .cta-section { padding: var(--space-xl) var(--space-md); }
   .card-grid { grid-template-columns: 1fr; }
+  .card-img-wrap { height: 160px; }
+  .card-image { height: 160px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-images.multi { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
-  .recipe-card { flex-direction: column; align-items: flex-start; }
-  .logo-name { font-size: 1.3rem; }
+  .logo-name { font-size: 1.25rem; }
   .footer-inner { grid-template-columns: 1fr; }
+  .announcement-bar { font-size: 0.8rem; padding: 0.45rem 0.75rem; }
+  .category-nav { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
+  .category-tab { white-space: nowrap; flex-shrink: 0; }
 }
 
-/* ---- Plant List ---- */
-.plant-list {
-  columns: 2;
-  column-gap: var(--space-xl);
-  list-style: none;
-}
-.plant-list li {
-  padding: 0.4rem 0;
-  font-size: 0.95rem;
-  break-inside: avoid;
-  border-bottom: 1px solid var(--border);
-}
-.plant-list li:last-child { border-bottom: none; }
-.plant-name { font-weight: 500; color: var(--text); }
-.plant-variety { color: var(--text-light); font-style: italic; }
 `;
 
