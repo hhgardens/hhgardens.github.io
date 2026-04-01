@@ -6,9 +6,9 @@ export function aboutPage(ctx: PageContext): string {
   return `
     <section class="hero">
       <div class="hero-inner">
-        <div class="hero-text">
+        <div class="hero-text about-hero-text">
           <h1>About Heather Hill Gardens</h1>
-          <p>Heather Hill Gardens is a family-owned nursery tucked into a beautiful property on Ox Road in Fairfax Station, Virginia. What started as a passion for growing has become a destination for gardeners across Northern Virginia.</p>
+          <p>A family-owned nursery on Ox Road in Fairfax Station, Virginia — what started as a passion for growing has become a destination for gardeners across Northern Virginia.</p>
         </div>
         <div class="hero-images single">
           <img src="/images/OverviewUmbVertical.jpg" alt="Heather Hill Gardens property" loading="eager">

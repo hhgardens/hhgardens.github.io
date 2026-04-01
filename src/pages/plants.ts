@@ -87,7 +87,7 @@ export function plantsPage(ctx: PageContext): string {
             .map(
               (v) => `
             <div style="display:flex; gap:var(--space-md); align-items:flex-start; margin-bottom:var(--space-md);">
-              ${v.image ? `<img src="${v.image}" alt="${v.name}" style="width:110px; height:110px; object-fit:cover; border-radius:8px; flex-shrink:0;" loading="lazy">` : ""}
+              ${v.image ? `<img src="${v.image}" alt="${v.name}" class="variety-img" style="width:110px; height:110px; object-fit:cover; border-radius:8px; flex-shrink:0;" loading="lazy">` : ""}
               <div>
                 <strong style="font-size:0.95rem; color:var(--text);">${v.name}</strong>${v.trademark ? ` <span class="tag">${v.trademark}</span>` : ""}
                 <p style="font-size:0.88rem; color:var(--text-light); margin-top:var(--space-xs); line-height:1.6;">${v.description}</p>

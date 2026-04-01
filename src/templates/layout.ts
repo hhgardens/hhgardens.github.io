@@ -7,6 +7,9 @@ interface LayoutOptions {
   site: SiteData;
   season: SeasonPreset;
   activeSeason?: string;
+  currentPath?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
 }
 
 const NAV_ITEMS = [
@@ -17,9 +20,12 @@ const NAV_ITEMS = [
   { href: "/about", label: "About" },
 ];
 
-export function layout({ title, description, content, site, season, activeSeason }: LayoutOptions): string {
+export function layout({ title, description, content, site, season, activeSeason, currentPath, canonicalUrl, ogImage }: LayoutOptions): string {
   const navLinks = NAV_ITEMS.map(
-    (item) => `<a href="${item.href}" class="nav-link">${item.label}</a>`
+    (item) => {
+      const isActive = currentPath === item.href || (item.href !== "/" && currentPath?.startsWith(item.href));
+      return `<a href="${item.href}" class="nav-link${isActive ? ' active' : ''}">${item.label}</a>`;
+    }
   ).join("\n            ");
 
   const announcementClass =
@@ -39,6 +45,24 @@ export function layout({ title, description, content, site, season, activeSeason
   <meta name="description" content="${description}">
   <meta name="keywords" content="${site.metaKeywords}">
   <meta name="google-site-verification" content="${site.googleSiteVerification}">
+  ${canonicalUrl ? `<link rel="canonical" href="${canonicalUrl}">` : ""}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="${site.name}">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  ${canonicalUrl ? `<meta property="og:url" content="${canonicalUrl}">` : ""}
+  ${ogImage ? `<meta property="og:image" content="${ogImage}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">` : ""}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  ${ogImage ? `<meta name="twitter:image" content="${ogImage}">` : ""}
+
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -107,6 +131,10 @@ export function layout({ title, description, content, site, season, activeSeason
     ${content}
   </main>
 
+  <button class="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
@@ -135,6 +163,34 @@ export function layout({ title, description, content, site, season, activeSeason
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
     });
+    // Scroll to top button visibility
+    (function() {
+      var btn = document.querySelector('.scroll-top');
+      if (!btn) return;
+      window.addEventListener('scroll', function() {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, {passive: true});
+    })();
+    // Active category tab on scroll
+    (function() {
+      var tabs = document.querySelectorAll('.category-tab');
+      if (!tabs.length) return;
+      var sections = Array.from(tabs).map(function(t) {
+        return document.querySelector(t.getAttribute('href'));
+      }).filter(Boolean);
+      function update() {
+        var scrollY = window.scrollY + 120;
+        var active = null;
+        sections.forEach(function(s, i) {
+          if (s.offsetTop <= scrollY) active = i;
+        });
+        tabs.forEach(function(t, i) {
+          t.classList.toggle('active', i === active);
+        });
+      }
+      window.addEventListener('scroll', update, {passive: true});
+      update();
+    })();
   </script>
 </body>
 </html>`;
@@ -294,6 +350,8 @@ a:hover { color: var(--sage-dark); }
 }
 .nav-link:hover { color: var(--sage); }
 .nav-link:hover::after { right: 0; }
+.nav-link.active { color: var(--sage); font-weight: 600; }
+.nav-link.active::after { right: 0; background: var(--sage); }
 
 /* Hamburger */
 .nav-toggle {
@@ -459,10 +517,10 @@ a:hover { color: var(--sage-dark); }
 }
 .hero-images.single img { max-height: 440px; }
 .hero-images.multi { grid-template-columns: 1fr 1fr; }
-.hero-images.multi img { height: 260px; }
+.hero-images.multi img { height: 300px; }
 .hero-images.triple img:first-child {
   grid-column: 1 / -1;
-  height: 280px;
+  height: 320px;
 }
 
 /* ---- Buttons ---- */
@@ -859,6 +917,7 @@ a:hover { color: var(--sage-dark); }
   .hero-images.single img { max-height: 280px; }
   .hero-images.multi { grid-template-columns: 1fr 1fr; }
   .hero-images.multi img { height: 180px; }
+  .hero-images.triple img:first-child { height: 200px; }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
   .info-grid { grid-template-columns: 1fr; }
@@ -908,6 +967,8 @@ a:hover { color: var(--sage-dark); }
   .hero-images.single img { max-height: 220px; }
   .hero-images.multi { grid-template-columns: 1fr; }
   .hero-images.multi img { height: 200px; }
+  .hero-images.triple img:first-child { height: 180px; }
+  .variety-img { width: 80px !important; height: 80px !important; }
   .page-section,
   .page-section-narrow { padding: var(--space-xl) var(--space-md); }
   .cta-section { padding: var(--space-xl) var(--space-md); }
@@ -921,6 +982,49 @@ a:hover { color: var(--sage-dark); }
   .announcement-bar { font-size: 0.8rem; padding: 0.45rem 0.75rem; }
   .category-nav { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
   .category-tab { white-space: nowrap; flex-shrink: 0; }
+  .about-hero-text p { font-size: 0.95rem; }
+}
+
+/* ---- Active Category Tab ---- */
+.category-tab.active {
+  color: var(--sage);
+  border-bottom-color: var(--sage);
+  font-weight: 600;
+}
+
+/* ---- Scroll to Top ---- */
+.scroll-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(45, 64, 40, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+  z-index: 100;
+}
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top:hover {
+  background: var(--sage-dark);
+}
+.scroll-top svg {
+  width: 20px;
+  height: 20px;
 }
 
 `;

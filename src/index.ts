@@ -27,10 +27,31 @@ export default {
   async fetch(request: Request, env: Record<string, unknown>): Promise<Response> {
     const url = new URL(request.url);
     let path = url.pathname;
+    const origin = url.origin;
 
     // Normalize: strip trailing slash except root
     if (path !== "/" && path.endsWith("/")) {
       path = path.slice(0, -1);
+    }
+
+    // robots.txt
+    if (path === "/robots.txt") {
+      return new Response(
+        `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`,
+        { headers: { "Content-Type": "text/plain" } }
+      );
+    }
+
+    // sitemap.xml
+    if (path === "/sitemap.xml") {
+      const pages = ["/", "/plants", "/recipes", "/visit", "/about"];
+      const entries = pages.map(
+        (p) => `  <url><loc>${origin}${p}</loc></url>`
+      ).join("\n");
+      return new Response(
+        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`,
+        { headers: { "Content-Type": "application/xml" } }
+      );
     }
 
     // Check legacy redirects (try raw path segment without leading slash)
@@ -46,6 +67,8 @@ export default {
     let pageContent: string | null = null;
     let title = siteData.name;
     let description = siteData.metaDescription;
+    const canonicalUrl = `${origin}${path === "/" ? "" : path}`;
+    const ogImage = `${origin}/images/og-default.jpg`;
 
     switch (path) {
       case "/":
@@ -75,11 +98,11 @@ export default {
       default:
         // Let Wrangler handle static assets; if we get here it's a 404
         return htmlResponse(
-          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason: seasonsData.activeSeason }),
+          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason: seasonsData.activeSeason, currentPath: path }),
           404
         );
     }
 
-    return htmlResponse(layout({ title, description, content: pageContent, site: siteData, season, activeSeason: seasonsData.activeSeason }));
+    return htmlResponse(layout({ title, description, content: pageContent, site: siteData, season, activeSeason: seasonsData.activeSeason, currentPath: path, canonicalUrl, ogImage }));
   },
 } satisfies ExportedHandler;
