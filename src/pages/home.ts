@@ -7,7 +7,7 @@ export function homePage(ctx: PageContext): string {
     imageCount === 1 ? "single" : imageCount >= 3 ? "multi triple" : "multi";
 
   const images = season.heroImages
-    .map((src) => `<img src="${src}" alt="${site.name}" loading="eager">`)
+    .map((img: { src: string; alt: string }) => `<img src="${img.src}" alt="${img.alt}" loading="eager">`)
     .join("\n        ");
 
   const extraBody = season.heroBodyExtra
@@ -40,9 +40,9 @@ export function homePage(ctx: PageContext): string {
             <p>Perennials, hostas, herbs, and annuals — chosen for Virginia gardens.</p>
           </div>
         </a>
-        <a href="/plants" class="card" style="text-decoration:none;">
+        <a href="/plants#perennials" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
-            <img src="/images/BaptisiaCarolinaMoonlight (2).jpg" alt="Native Baptisia in bloom" loading="lazy">
+            <img src="/images/BaptisiaCarolinaMoonlight (2).jpg" alt="Native Baptisia in bloom at the nursery" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Native Plants</h3>

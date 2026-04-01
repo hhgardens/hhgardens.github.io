@@ -28,7 +28,6 @@ heatherhillgardens/
 │       ├── home.ts            # Seasonal homepage
 │       ├── plants.ts          # Consolidated plants page
 │       ├── recipes.ts         # Recipe downloads
-│       ├── potting-parties.ts # Service page
 │       ├── visit.ts           # Directions + contact
 │       ├── about.ts           # About the nursery
 │       └── 404.ts             # Not found page

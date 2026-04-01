@@ -48,8 +48,6 @@ export default {
     let description = siteData.metaDescription;
 
     switch (path) {
-      case "/potting-parties":
-        return Response.redirect(new URL("/", url.origin).toString(), 301);
       case "/":
         title = `${siteData.name} — ${season.heroHeadline}`;
         pageContent = homePage(ctx);

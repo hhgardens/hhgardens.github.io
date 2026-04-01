@@ -55,6 +55,36 @@ export function layout({ title, description, content, site, season, activeSeason
     gtag('js', new Date());
     gtag('config', '${site.gaId}');
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "${site.name}",
+    "description": "Farmers' market featuring a variety of plants, vegetables, and produce, plus local honey.",
+    "url": "https://heatherhillgardens.com",
+    "telephone": "(703) 690-6060",
+    "email": "${site.email}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8111 Ox Rd",
+      "addressLocality": "Fairfax Station",
+      "addressRegion": "VA",
+      "postalCode": "22039",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.7441,
+      "longitude": -77.3285
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "45"
+    },
+    "sameAs": ["${site.facebook}"]
+  }
+  </script>
 </head>
 <body>
   ${announcementBar}

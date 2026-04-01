@@ -19,7 +19,7 @@ export interface SeasonPreset {
   heroBodyExtra: string | null;
   ctaText: string;
   ctaHref: string;
-  heroImages: string[];
+  heroImages: { src: string; alt: string }[];
   hours: string;
   announcement: string | null;
 }
@@ -32,13 +32,13 @@ export interface SeasonsData {
 export interface PlantVariety {
   name: string;
   trademark?: string | null;
-  description: string;
+  description: string | null;
   image?: string;
 }
 
 export interface Plant {
   name: string;
-  variety?: string;
+  variety?: string | null;
   description?: string;
   tags?: string[];
   varieties?: PlantVariety[];
@@ -56,8 +56,14 @@ export interface PlantCategory {
   description: string;
   whyUseThem?: string;
   pageIntro?: string;
+  additionalInfo?: string;
+  overviewDescription?: string;
+  closingText?: string;
   image?: string;
-  plants: Plant[];
+  imageCaption?: string;
+  specialNotes?: Record<string, string>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  plants: any[];
   featured?: Plant[];
   gallery?: HostaGalleryItem[];
   featuredImages?: { src: string; alt: string; caption: string }[];

@@ -7,19 +7,21 @@
       "heroBodyExtra": null,
       "ctaText": "Join Our Mailing List",
       "ctaHref": "mailto:heatherhillgardener@gmail.com?subject=Add Me To Your Mailing List",
-      "heroImages": ["/images/fall/MumsAndPansies190h.jpg"],
+      "heroImages": [
+        { "src": "/images/fall/MumsAndPansies190h.jpg", "alt": "Colorful mums and pansies at Heather Hill Gardens" }
+      ],
       "hours": "Closed temporarily for the season",
       "announcement": null
     },
     "spring": {
       "heroHeadline": "Our 2026 Season Is Here!",
       "heroBody": "We open Friday, April 3rd — come see us!",
-      "heroBodyExtra": "Come see us to talk about your ideas and visions. We can help make your planting dreams a reality. Start your season by planting early pansies and perennials; plant perennials once and enjoy them season after season! Love the deer but would rather not feed them with your plantings? We can help with that. Come see us!",
+      "heroBodyExtra": "Start your season with early pansies and perennials that come back year after year. Need deer-resistant options? We can help with that, too.",
       "ctaText": "Visit Us This Weekend",
       "ctaHref": "/visit/",
       "heroImages": [
-        "/images/2025/spring_flowers.png",
-        "/images/2025/spring_flower_display.jpg"
+        { "src": "/images/2025/spring_flowers.png", "alt": "Bright spring flowers on display at the nursery" },
+        { "src": "/images/2025/spring_flower_display.jpg", "alt": "Spring flower display tables at Heather Hill Gardens" }
       ],
       "hours": "Wed–Fri noon–5:00pm · Sat 9:30am–5:00pm · Sun 11am–5:00pm",
       "announcement": "Our 2026 season opens April 3rd!"
@@ -31,9 +33,9 @@
       "ctaText": "Come See Our Fall Display",
       "ctaHref": "/visit/",
       "heroImages": [
-        "/images/2024/Pumpkin Display.jpg",
-        "/images/fall/PumpkinsAndMums.jpg",
-        "/images/2022/flowers.jpg"
+        { "src": "/images/2024/Pumpkin Display.jpg", "alt": "Pumpkin display at Heather Hill Gardens" },
+        { "src": "/images/fall/PumpkinsAndMums.jpg", "alt": "Pumpkins and mums arranged for fall" },
+        { "src": "/images/2022/flowers.jpg", "alt": "Seasonal flowers in bloom" }
       ],
       "hours": "Wed–Fri noon–5pm · Sat 10am–5pm · Sun 11am–5pm",
       "announcement": "Pumpkins, mums, and winter pansies are here!"
