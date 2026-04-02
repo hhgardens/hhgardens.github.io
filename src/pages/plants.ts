@@ -4,22 +4,36 @@ export function plantsPage(ctx: PageContext): string {
   const { plants } = ctx;
   const categories = plants.categories;
 
-  const categoryNav = categories
-    .map((c) => `<a href="#${c.id}" class="category-tab">${c.name}</a>`)
-    .join("\n        ");
+  // ── Overview cards (image + blurb for each category) ──
+  const overviewCards = categories
+    .map((cat) => {
+      const desc = cat.overviewDescription || cat.description;
+      return `
+      <a href="#${cat.id}" class="plant-overview-card">
+        <figure>
+          <img src="${cat.image}" alt="${cat.name}" loading="lazy">
+          ${cat.imageCaption ? `<figcaption>${cat.imageCaption}</figcaption>` : ""}
+        </figure>
+        <div class="plant-overview-text">
+          <h2>${cat.name}</h2>
+          <p>${desc}</p>
+          <span class="plant-overview-link">Explore ${cat.name} →</span>
+        </div>
+      </a>`;
+    })
+    .join(`\n      <hr class="overview-divider">`);
 
+  // ── Detailed sections ──
   const sections = categories.map((cat, idx) => {
     let content = "";
 
     if (cat.id === "annuals") {
       content = `
-        <div class="annuals-intro">
-          ${cat.image ? `
+        <div class="category-intro">
           <figure>
             <img src="${cat.image}" alt="${cat.name}" loading="lazy">
-            ${cat.imageCaption ? `<figcaption>${cat.imageCaption}</figcaption>` : ""}
-          </figure>` : ""}
-          <div class="annuals-text">
+          </figure>
+          <div class="category-intro-text">
             <p class="section-intro">${cat.description}</p>
             ${cat.whyUseThem ? `<p class="section-intro">${cat.whyUseThem}</p>` : ""}
           </div>
@@ -140,9 +154,9 @@ export function plantsPage(ctx: PageContext): string {
       <h1 class="page-title">Our Plants</h1>
       <p class="page-subtitle">${plants.intro}</p>
 
-      <nav class="category-nav" aria-label="Plant categories">
-        ${categoryNav}
-      </nav>
+      <div class="plant-overview">
+        ${overviewCards}
+      </div>
 
       ${sections}
     </section>

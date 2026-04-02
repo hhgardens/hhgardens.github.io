@@ -817,31 +817,95 @@ a:hover { color: var(--sage-dark); }
   font-weight: 600;
 }
 
-/* ---- Plants Page: Annuals Two-Column ---- */
-.annuals-intro {
+/* ---- Plants Page: Overview Cards ---- */
+.plant-overview {
+  margin-bottom: var(--space-2xl);
+}
+.plant-overview-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-lg);
+  border-radius: 12px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.plant-overview-card:hover {
+  background: var(--moss);
+  box-shadow: 0 4px 16px rgba(58, 50, 38, 0.08);
+}
+.plant-overview-card figure {
+  margin: 0;
+}
+.plant-overview-card figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.plant-overview-card:hover figure img {
+  transform: scale(1.03);
+}
+.plant-overview-card figure figcaption {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: var(--space-xs);
+  font-style: italic;
+  text-align: center;
+}
+.plant-overview-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.015em;
+}
+.plant-overview-text p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+.plant-overview-link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sage);
+  transition: color 0.2s;
+}
+.plant-overview-card:hover .plant-overview-link {
+  color: var(--sage-dark);
+}
+.overview-divider {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-sm) 0;
+}
+
+/* ---- Plants Page: Category Intro (image + text) ---- */
+.category-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-xl);
   align-items: start;
   margin-bottom: var(--space-xl);
 }
-.annuals-intro figure {
+.category-intro figure {
   margin: 0;
 }
-.annuals-intro figure img {
+.category-intro figure img {
   width: 100%;
   height: auto;
   border-radius: 12px;
   display: block;
 }
-.annuals-intro figcaption {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  margin-top: var(--space-sm);
-  font-style: italic;
-  text-align: center;
-}
-.annuals-intro .annuals-text .section-intro {
+.category-intro .category-intro-text .section-intro {
   max-width: none;
 }
 
@@ -964,7 +1028,9 @@ a:hover { color: var(--sage-dark); }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
   .info-grid { grid-template-columns: 1fr; }
-  .annuals-intro { grid-template-columns: 1fr; }
+  .plant-overview-card { grid-template-columns: 1fr; }
+  .plant-overview-card figure img { height: 180px; }
+  .category-intro { grid-template-columns: 1fr; }
   .plant-list { columns: 1; }
   .page-title { font-size: 2rem; }
   .section-title { font-size: 1.5rem; }
