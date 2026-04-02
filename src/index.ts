@@ -68,7 +68,7 @@ export default {
     let title = siteData.name;
     let description = siteData.metaDescription;
     const canonicalUrl = `${origin}${path === "/" ? "" : path}`;
-    const ogImage = `${origin}/images/og-default.jpg`;
+    const ogImage = `${origin}/images/og-hero-with-logo.jpg`;
 
     switch (path) {
       case "/":
