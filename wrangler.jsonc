@@ -12,7 +12,7 @@
 
   "routes": [
     {
-      "pattern": "new.heatherhillgardens.com",
+      "pattern": "heatherhillgardens.com",
       "custom_domain": true
     }
   ]

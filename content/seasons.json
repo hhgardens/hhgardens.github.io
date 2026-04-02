@@ -2,7 +2,7 @@
   "seasonDates": {
     "spring": "03-01",
     "fall":   "09-22",
-    "closed": "11-05"
+    "closed": "11-08"
   },
   "presets": {
     "closed": {
@@ -21,8 +21,8 @@
       "announcement": null
     },
     "spring": {
-      "heroHeadline": "Our 2026 Season Is Here!",
-      "heroBody": "We open Friday, April 3rd — come see us!",
+      "heroHeadline": "We're Open for the Season!",
+      "heroBody": "Come see what's blooming — and new plants are arriving every week!",
       "heroBodyExtra": "Start your season with early pansies and perennials that come back year after year. Need deer-resistant options? We can help with that, too.",
       "ctaText": "Visit Us This Weekend",
       "ctaHref": "/visit",
@@ -37,7 +37,7 @@
         }
       ],
       "hours": "Wed–Fri noon–5:00pm · Sat 9:30am–5:00pm · Sun 11am–5:00pm",
-      "announcement": "Our 2026 season opens April 3rd!",
+      "announcement": "We're open! New plants arriving weekly.",
       "seasonStart": "2026-04-03",
       "schedule": {
         "0": { "name": "Sunday",    "open": "11:00", "close": "17:00", "openDisplay": "11am",    "closeDisplay": "5pm" },

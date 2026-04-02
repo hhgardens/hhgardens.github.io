@@ -3,7 +3,7 @@
 This workspace contains the current live site and the new Cloudflare Worker site under development for Heather Hill Gardens Productions LLC.
 
 - Current live site: https://heatherhillgardens.com/
-- New Worker site: https://new2.heatherhillgardens.com/
+- Worker site: https://heatherhillgardens.com/
 
 The new site is the primary workspace target. It is a Cloudflare Worker serving static assets from `public/` with routing handled in `src/index.ts`.
 
@@ -31,7 +31,7 @@ heatherhillgardens/
 │       ├── visit.ts           # Directions + contact
 │       ├── about.ts           # About the nursery
 │       └── 404.ts             # Not found page
-├── wrangler.jsonc             # Cloudflare config (new2.heatherhillgardens.com)
+├── wrangler.jsonc             # Cloudflare config (heatherhillgardens.com)
 ├── package.json               # Scripts and tooling
 ├── MIGRATION.md               # Legacy page migration inventory
 └── AGENTS.md                  # This file
