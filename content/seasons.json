@@ -1,5 +1,9 @@
 {
-  "activeSeason": "spring",
+  "seasonDates": {
+    "spring": "03-01",
+    "fall":   "09-22",
+    "closed": "11-05"
+  },
   "presets": {
     "closed": {
       "heroHeadline": "Closed for the Season",
@@ -33,7 +37,15 @@
         }
       ],
       "hours": "Wed–Fri noon–5:00pm · Sat 9:30am–5:00pm · Sun 11am–5:00pm",
-      "announcement": "Our 2026 season opens April 3rd!"
+      "announcement": "Our 2026 season opens April 3rd!",
+      "seasonStart": "2026-04-03",
+      "schedule": {
+        "0": { "name": "Sunday",    "open": "11:00", "close": "17:00", "openDisplay": "11am",    "closeDisplay": "5pm" },
+        "3": { "name": "Wednesday", "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
+        "4": { "name": "Thursday",  "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
+        "5": { "name": "Friday",    "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
+        "6": { "name": "Saturday",  "open": "09:30", "close": "17:00", "openDisplay": "9:30am",  "closeDisplay": "5pm" }
+      }
     },
     "fall": {
       "heroHeadline": "Celebrate Fall!",
@@ -56,7 +68,14 @@
         }
       ],
       "hours": "Wed–Fri noon–5pm · Sat 10am–5pm · Sun 11am–5pm",
-      "announcement": "Pumpkins, mums, and winter pansies are here!"
+      "announcement": "Pumpkins, mums, and winter pansies are here!",
+      "schedule": {
+        "0": { "name": "Sunday",    "open": "11:00", "close": "17:00", "openDisplay": "11am",   "closeDisplay": "5pm" },
+        "3": { "name": "Wednesday", "open": "12:00", "close": "17:00", "openDisplay": "noon",   "closeDisplay": "5pm" },
+        "4": { "name": "Thursday",  "open": "12:00", "close": "17:00", "openDisplay": "noon",   "closeDisplay": "5pm" },
+        "5": { "name": "Friday",    "open": "12:00", "close": "17:00", "openDisplay": "noon",   "closeDisplay": "5pm" },
+        "6": { "name": "Saturday",  "open": "10:00", "close": "17:00", "openDisplay": "10am",   "closeDisplay": "5pm" }
+      }
     }
   }
 }

@@ -10,11 +10,84 @@ import { recipesPage } from "./pages/recipes";
 import { visitPage } from "./pages/visit";
 import { aboutPage } from "./pages/about";
 import { notFoundPage } from "./pages/404";
+import type { SeasonPreset, ScheduleDay } from "./types";
 
 const redirects: Record<string, string> = redirectsData as Record<string, string>;
+const seasonDates = (seasonsData as { seasonDates: Record<string, string> }).seasonDates;
 
-const season =
-  seasonsData.presets[seasonsData.activeSeason as keyof typeof seasonsData.presets];
+/** Determine which season is active based on today's date in Eastern time. */
+function getActiveSeason(eastern: Date): string {
+  const m = String(eastern.getMonth() + 1).padStart(2, "0");
+  const d = String(eastern.getDate()).padStart(2, "0");
+  const mmdd = `${m}-${d}`;
+
+  // Walk the calendar in reverse order: closed → fall → spring
+  // Each entry means "from this MM-DD onward, use this season"
+  const entries = Object.entries(seasonDates)
+    .sort((a, b) => b[1].localeCompare(a[1])); // descending by date
+
+  for (const [season, startDate] of entries) {
+    if (mmdd >= startDate) return season;
+  }
+
+  // Before the earliest date in the calendar → use the last season
+  // (wraps around, e.g. Jan–Mar is still "closed" from Nov 5)
+  return entries[0][0];
+}
+
+/** Compute a dynamic announcement based on current Eastern-time date/time. */
+function getDynamicAnnouncement(season: SeasonPreset): string | null {
+  if (!season.schedule || !season.seasonStart) {
+    return season.announcement;
+  }
+
+  // Current time in Eastern timezone
+  const now = new Date();
+  const eastern = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
+  const y = eastern.getFullYear();
+  const m = String(eastern.getMonth() + 1).padStart(2, "0");
+  const d = String(eastern.getDate()).padStart(2, "0");
+  const today = `${y}-${m}-${d}`;
+
+  // Before season opens — show the static pre-season announcement
+  if (today < season.seasonStart) {
+    return season.announcement;
+  }
+
+  const dayOfWeek = eastern.getDay(); // 0=Sun … 6=Sat
+  const currentMinutes = eastern.getHours() * 60 + eastern.getMinutes();
+
+  const todaySchedule: ScheduleDay | undefined =
+    season.schedule[dayOfWeek.toString()];
+
+  if (todaySchedule) {
+    const [openH, openM] = todaySchedule.open.split(":").map(Number);
+    const [closeH, closeM] = todaySchedule.close.split(":").map(Number);
+    const openMin = openH * 60 + openM;
+    const closeMin = closeH * 60 + closeM;
+
+    if (currentMinutes < openMin) {
+      return `Open today at ${todaySchedule.openDisplay}`;
+    }
+    if (currentMinutes < closeMin) {
+      return `Open today until ${todaySchedule.closeDisplay}`;
+    }
+    // Past closing — fall through to "next open day"
+  }
+
+  // Find the next open day
+  for (let i = 1; i <= 7; i++) {
+    const nextDay = (dayOfWeek + i) % 7;
+    const nextSchedule: ScheduleDay | undefined =
+      season.schedule[nextDay.toString()];
+    if (nextSchedule) {
+      const label = i === 1 ? "tomorrow" : nextSchedule.name;
+      return `Opens ${label} at ${nextSchedule.openDisplay}`;
+    }
+  }
+
+  return season.announcement;
+}
 
 function htmlResponse(html: string, status = 200): Response {
   return new Response(html, {
@@ -62,7 +135,12 @@ export default {
       return Response.redirect(new URL(redirectTarget, url.origin).toString(), 301);
     }
 
-    // Page routing
+    // Determine active season and compute dynamic announcement per request
+    const now = new Date();
+    const eastern = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
+    const activeSeason = getActiveSeason(eastern);
+    const baseSeason = seasonsData.presets[activeSeason as keyof typeof seasonsData.presets];
+    const season = { ...baseSeason, announcement: getDynamicAnnouncement(baseSeason as SeasonPreset) };
     const ctx = { site: siteData, season, seasons: seasonsData, plants: plantsData, recipes: recipesData };
     let pageContent: string | null = null;
     let title = siteData.name;
@@ -98,11 +176,11 @@ export default {
       default:
         // Let Wrangler handle static assets; if we get here it's a 404
         return htmlResponse(
-          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason: seasonsData.activeSeason, currentPath: path, noindex: true }),
+          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason, currentPath: path, noindex: true }),
           404
         );
     }
 
-    return htmlResponse(layout({ title, description, content: pageContent, site: siteData, season, activeSeason: seasonsData.activeSeason, currentPath: path, canonicalUrl, ogImage }));
+    return htmlResponse(layout({ title, description, content: pageContent, site: siteData, season, activeSeason, currentPath: path, canonicalUrl, ogImage }));
   },
 } satisfies ExportedHandler;

@@ -13,6 +13,14 @@ export interface SiteData {
   metaDescription: string;
 }
 
+export interface ScheduleDay {
+  name: string;
+  open: string;
+  close: string;
+  openDisplay: string;
+  closeDisplay: string;
+}
+
 export interface SeasonPreset {
   heroHeadline: string;
   heroBody: string;
@@ -22,10 +30,12 @@ export interface SeasonPreset {
   heroImages: { src: string; alt: string }[];
   hours: string;
   announcement: string | null;
+  seasonStart?: string;
+  schedule?: Record<string, ScheduleDay>;
 }
 
 export interface SeasonsData {
-  activeSeason: string;
+  seasonDates: Record<string, string>;
   presets: Record<string, SeasonPreset>;
 }
 
