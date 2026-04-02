@@ -13,10 +13,18 @@ export function plantsPage(ctx: PageContext): string {
 
     if (cat.id === "annuals") {
       content = `
-        <p class="section-intro">${cat.description}</p>
-        ${cat.whyUseThem ? `<p class="section-intro">${cat.whyUseThem}</p>` : ""}
+        <div class="annuals-intro">
+          ${cat.image ? `
+          <figure>
+            <img src="${cat.image}" alt="${cat.name}" loading="lazy">
+            ${cat.imageCaption ? `<figcaption>${cat.imageCaption}</figcaption>` : ""}
+          </figure>` : ""}
+          <div class="annuals-text">
+            <p class="section-intro">${cat.description}</p>
+            ${cat.whyUseThem ? `<p class="section-intro">${cat.whyUseThem}</p>` : ""}
+          </div>
+        </div>
         ${cat.pageIntro ? `<p class="section-intro">${cat.pageIntro}</p>` : ""}
-        ${cat.image ? `<img src="${cat.image}" alt="${cat.name}" style="border-radius:10px; max-height:320px; width:100%; object-fit:cover; margin-bottom:var(--space-lg);" loading="lazy">` : ""}
       `;
     } else if (cat.id === "herbs") {
       const featuredImgs = (cat.featuredImages || [])
@@ -86,11 +94,11 @@ export function plantsPage(ctx: PageContext): string {
           const varieties = (p.varieties || [])
             .map(
               (v) => `
-            <div style="display:flex; gap:var(--space-md); align-items:flex-start; margin-bottom:var(--space-md);">
-              ${v.image ? `<img src="${v.image}" alt="${v.name}" class="variety-img" style="width:110px; height:110px; object-fit:cover; border-radius:8px; flex-shrink:0;" loading="lazy">` : ""}
+            <div class="variety-row">
+              ${v.image ? `<img src="${v.image}" alt="${v.name}" loading="lazy">` : ""}
               <div>
                 <strong style="font-size:0.95rem; color:var(--text);">${v.name}</strong>${v.trademark ? ` <span class="tag">${v.trademark}</span>` : ""}
-                <p style="font-size:0.88rem; color:var(--text-light); margin-top:var(--space-xs); line-height:1.6;">${v.description}</p>
+                ${v.description ? `<p style="font-size:0.88rem; color:var(--text-light); margin-top:var(--space-xs); line-height:1.6;">${v.description}</p>` : ""}
               </div>
             </div>`
             )

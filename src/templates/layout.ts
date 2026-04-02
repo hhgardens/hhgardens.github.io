@@ -817,6 +817,49 @@ a:hover { color: var(--sage-dark); }
   font-weight: 600;
 }
 
+/* ---- Plants Page: Annuals Two-Column ---- */
+.annuals-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+  margin-bottom: var(--space-xl);
+}
+.annuals-intro figure {
+  margin: 0;
+}
+.annuals-intro figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.annuals-intro figcaption {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: var(--space-sm);
+  font-style: italic;
+  text-align: center;
+}
+.annuals-intro .annuals-text .section-intro {
+  max-width: none;
+}
+
+/* ---- Perennials Variety Row ---- */
+.variety-row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+.variety-row img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
 /* ---- Dividers ---- */
 .section-divider {
   border: none;
@@ -921,6 +964,7 @@ a:hover { color: var(--sage-dark); }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
   .info-grid { grid-template-columns: 1fr; }
+  .annuals-intro { grid-template-columns: 1fr; }
   .plant-list { columns: 1; }
   .page-title { font-size: 2rem; }
   .section-title { font-size: 1.5rem; }
@@ -968,7 +1012,7 @@ a:hover { color: var(--sage-dark); }
   .hero-images.multi { grid-template-columns: 1fr; }
   .hero-images.multi img { height: 200px; }
   .hero-images.triple img:first-child { height: 180px; }
-  .variety-img { width: 80px !important; height: 80px !important; }
+  .variety-img, .variety-row img { width: 80px !important; height: 80px !important; }
   .page-section,
   .page-section-narrow { padding: var(--space-xl) var(--space-md); }
   .cta-section { padding: var(--space-xl) var(--space-md); }
