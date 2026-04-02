@@ -33,7 +33,7 @@ export function homePage(ctx: PageContext): string {
       <div class="card-grid-3">
         <a href="/plants" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
-            <img src="/images/HerbTableforWeb.jpg" alt="Fresh herbs and plants" loading="lazy">
+            <img src="/images/plants/herbs/HerbTableforWeb.jpg" alt="Fresh herbs and plants" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Our Plants</h3>
@@ -42,7 +42,7 @@ export function homePage(ctx: PageContext): string {
         </a>
         <a href="/plants#perennials" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
-            <img src="/images/BaptisiaAustralis.webp" alt="Blue wild indigo (Baptisia australis) in bloom" loading="lazy">
+            <img src="/images/plants/perennials/BaptisiaAustralis.webp" alt="Blue wild indigo (Baptisia australis) in bloom" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Native Plants</h3>
@@ -51,7 +51,7 @@ export function homePage(ctx: PageContext): string {
         </a>
         <a href="/recipes" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
-            <img src="/images/BasilGenovese.jpg" alt="Fresh basil" loading="lazy">
+            <img src="/images/plants/herbs/BasilGenovese.jpg" alt="Fresh basil" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Herb Recipes</h3>

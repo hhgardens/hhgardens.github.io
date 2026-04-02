@@ -51,8 +51,8 @@ export function visitPage(ctx: PageContext): string {
       </div>
 
       <div class="photo-grid-2">
-        <img src="/images/HeatherHillHouse.jpg" alt="The blue Victorian house at Heather Hill Gardens on Ox Road" loading="lazy">
-        <img src="/images/HHFromTheRoadSmall2.jpg" alt="Heather Hill Gardens as seen from Route 123" loading="lazy">
+        <img src="/images/nursery/HeatherHillHouse.jpg" alt="The blue Victorian house at Heather Hill Gardens on Ox Road" loading="lazy">
+        <img src="/images/nursery/HHFromTheRoadSmall2.jpg" alt="Heather Hill Gardens as seen from Route 123" loading="lazy">
       </div>
     </section>
 

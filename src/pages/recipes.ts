@@ -26,19 +26,19 @@ export function recipesPage(ctx: PageContext): string {
 
       <div class="gallery-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-bottom: var(--space-2xl);">
         <div class="gallery-item">
-          <img src="/images/BasilGenovese.jpg" alt="Basil Genovese" loading="lazy">
+          <img src="/images/plants/herbs/BasilGenovese.jpg" alt="Basil Genovese" loading="lazy">
           <div class="gallery-caption">Basil</div>
         </div>
         <div class="gallery-item">
-          <img src="/images/ParsleyCurly.jpg" alt="Curly Parsley" loading="lazy">
+          <img src="/images/plants/herbs/ParsleyCurly.jpg" alt="Curly Parsley" loading="lazy">
           <div class="gallery-caption">Parsley</div>
         </div>
         <div class="gallery-item">
-          <img src="/images/SageTricolor.jpg" alt="Tricolor Sage" loading="lazy">
+          <img src="/images/plants/herbs/SageTricolor.jpg" alt="Tricolor Sage" loading="lazy">
           <div class="gallery-caption">Sage</div>
         </div>
         <div class="gallery-item">
-          <img src="/images/Peppermint.jpg" alt="Peppermint" loading="lazy">
+          <img src="/images/plants/herbs/Peppermint.jpg" alt="Peppermint" loading="lazy">
           <div class="gallery-caption">Peppermint</div>
         </div>
       </div>

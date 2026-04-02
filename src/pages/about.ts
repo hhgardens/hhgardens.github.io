@@ -11,7 +11,7 @@ export function aboutPage(ctx: PageContext): string {
           <p>A family-owned nursery on Ox Road in Fairfax Station, Virginia — what started as a passion for growing has become a destination for gardeners across Northern Virginia.</p>
         </div>
         <div class="hero-images single">
-          <img src="/images/OverviewUmbVertical.jpg" alt="Heather Hill Gardens property" loading="eager">
+          <img src="/images/nursery/OverviewUmbVertical.jpg" alt="Heather Hill Gardens property" loading="eager">
         </div>
       </div>
     </section>
