@@ -107,7 +107,7 @@ export function plantsPage(ctx: PageContext): string {
         .map((p) => {
           const varieties = (p.varieties || [])
             .map(
-              (v) => `
+              (v: { image?: string; name: string; trademark?: string; description?: string }) => `
             <div class="variety-row">
               ${v.image ? `<img src="${v.image}" alt="${v.name}" loading="lazy">` : ""}
               <div>
@@ -118,7 +118,7 @@ export function plantsPage(ctx: PageContext): string {
             )
             .join("");
           const tags = (p.tags || [])
-            .map((t) => `<span class="tag${t === 'native' ? ' tag-native' : ''}">${t === 'native' ? '🌿 Native' : t}</span>`)
+            .map((t: string) => `<span class="tag${t === 'native' ? ' tag-native' : ''}">${t === 'native' ? '🌿 Native' : t}</span>`)
             .join("");
           return `
           <div style="margin-bottom:var(--space-2xl); padding-bottom:var(--space-xl); border-bottom:1px solid var(--border);">

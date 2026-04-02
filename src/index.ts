@@ -24,7 +24,7 @@ function htmlResponse(html: string, status = 200): Response {
 }
 
 export default {
-  async fetch(request: Request, env: Record<string, unknown>): Promise<Response> {
+  async fetch(request: Request, env: unknown): Promise<Response> {
     const url = new URL(request.url);
     let path = url.pathname;
     const origin = url.origin;
@@ -98,7 +98,7 @@ export default {
       default:
         // Let Wrangler handle static assets; if we get here it's a 404
         return htmlResponse(
-          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason: seasonsData.activeSeason, currentPath: path }),
+          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason: seasonsData.activeSeason, currentPath: path, noindex: true }),
           404
         );
     }

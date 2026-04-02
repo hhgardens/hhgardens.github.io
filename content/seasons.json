@@ -21,7 +21,7 @@
       "heroBody": "We open Friday, April 3rd — come see us!",
       "heroBodyExtra": "Start your season with early pansies and perennials that come back year after year. Need deer-resistant options? We can help with that, too.",
       "ctaText": "Visit Us This Weekend",
-      "ctaHref": "/visit/",
+      "ctaHref": "/visit",
       "heroImages": [
         {
           "src": "/images/seasonal/spring/spring_flowers.png",
@@ -40,7 +40,7 @@
       "heroBody": "It's October and we're decorating for fall! Nothing says 'Fall' quite like piles of pumpkins, masses of mums, and pots of pansies. We have all of that and more for your decor and winter garden color.",
       "heroBodyExtra": "We have orange pumpkins and those special white pumpkins that seem to take Fall decor up a notch. Whether you want to carve your pumpkins, decorate them with paint and markers, or just enjoy their natural beauty, we have what you need. Now is the time to plant mums or scatter pots of mums around your porch, your deck, or your yard. It's also time to plant winter pansies! These hardy plants will add color to your yard through the winter and into the spring.",
       "ctaText": "Come See Our Fall Display",
-      "ctaHref": "/visit/",
+      "ctaHref": "/visit",
       "heroImages": [
         {
           "src": "/images/seasonal/fall/Pumpkin Display.jpg",

@@ -10,6 +10,7 @@ interface LayoutOptions {
   currentPath?: string;
   canonicalUrl?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const NAV_ITEMS = [
@@ -20,7 +21,7 @@ const NAV_ITEMS = [
   { href: "/about", label: "About" },
 ];
 
-export function layout({ title, description, content, site, season, activeSeason, currentPath, canonicalUrl, ogImage }: LayoutOptions): string {
+export function layout({ title, description, content, site, season, activeSeason, currentPath, canonicalUrl, ogImage, noindex }: LayoutOptions): string {
   const navLinks = NAV_ITEMS.map(
     (item) => {
       const isActive = currentPath === item.href || (item.href !== "/" && currentPath?.startsWith(item.href));
@@ -45,6 +46,8 @@ export function layout({ title, description, content, site, season, activeSeason
   <meta name="description" content="${description}">
   <meta name="keywords" content="${site.metaKeywords}">
   <meta name="google-site-verification" content="${site.googleSiteVerification}">
+  <meta name="theme-color" content="#4A6741">
+  ${noindex ? '<meta name="robots" content="noindex">' : ''}
   ${canonicalUrl ? `<link rel="canonical" href="${canonicalUrl}">` : ""}
 
   <!-- Open Graph -->
@@ -85,7 +88,7 @@ export function layout({ title, description, content, site, season, activeSeason
     "@type": "LocalBusiness",
     "name": "${site.name}",
     "description": "Farmers' market featuring a variety of plants, vegetables, and produce, plus local honey.",
-    "url": "https://heatherhillgardens.com",
+    "url": "${canonicalUrl || 'https://heatherhillgardens.com'}",
     "telephone": "(703) 690-6060",
     "email": "${site.email}",
     "address": {
@@ -100,11 +103,6 @@ export function layout({ title, description, content, site, season, activeSeason
       "@type": "GeoCoordinates",
       "latitude": 38.7441,
       "longitude": -77.3285
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.6",
-      "reviewCount": "45"
     },
     "sameAs": ["${site.facebook}"]
   }
@@ -161,6 +159,7 @@ export function layout({ title, description, content, site, season, activeSeason
       </div>
       <div class="footer-bottom">
         <p class="service-areas">${site.serviceAreas}</p>
+        <p class="service-areas" style="margin-top:var(--space-sm);">&copy; ${new Date().getFullYear()} ${site.name}. All rights reserved.</p>
       </div>
     </div>
   </footer>
