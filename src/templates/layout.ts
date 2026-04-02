@@ -135,6 +135,12 @@ export function layout({ title, description, content, site, season, activeSeason
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
@@ -190,6 +196,40 @@ export function layout({ title, description, content, site, season, activeSeason
       }
       window.addEventListener('scroll', update, {passive: true});
       update();
+    })();
+    // Lightbox
+    (function() {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var lbCap = document.getElementById('lightbox-caption');
+      if (!lb) return;
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lbCap.textContent = alt || '';
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+      lb.addEventListener('click', function(e) {
+        if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') close();
+      });
+      // Attach to plant images (not overview/nav images)
+      document.querySelectorAll('.gallery-item img, .card-img-wrap img, .variety-row img, .category-intro img').forEach(function(img) {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          open(img.src, img.alt);
+        });
+      });
     })();
   </script>
 </body>
@@ -1135,6 +1175,55 @@ a:hover { color: var(--sage-dark); }
 .scroll-top svg {
   width: 20px;
   height: 20px;
+}
+
+/* ---- Lightbox ---- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.lightbox-close:hover { opacity: 1; }
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+.lightbox-caption {
+  color: var(--white);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  text-align: center;
+  opacity: 0.85;
 }
 
 `;
