@@ -1,8 +1,11 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   // Heather Hill Gardens – Cloudflare Worker
   "name": "heatherhillgardens",
   "main": "src/index.ts",
   "compatibility_date": "2025-03-24",
+  "workers_dev": false,
+  "preview_urls": true,
 
   "assets": {
     "directory": "./public"
