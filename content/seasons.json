@@ -1,0 +1,81 @@
+{
+  "seasonDates": {
+    "spring": "03-01",
+    "fall":   "09-22",
+    "closed": "11-08"
+  },
+  "presets": {
+    "closed": {
+      "heroHeadline": "Closed for the Season",
+      "heroBody": "Thanks so much for another great season! We hope to see you when we reopen at the beginning of April.",
+      "heroBodyExtra": null,
+      "ctaText": "Join Our Mailing List",
+      "ctaHref": "mailto:heatherhillgardener@gmail.com?subject=Add Me To Your Mailing List",
+      "heroImages": [
+        {
+          "src": "/images/seasonal/fall/MumsAndPansies190h.jpg",
+          "alt": "Colorful mums and pansies at Heather Hill Gardens"
+        }
+      ],
+      "hours": "Closed temporarily for the season",
+      "announcement": null
+    },
+    "spring": {
+      "heroHeadline": "We're Open for the Season!",
+      "heroBody": "Come see what's blooming — and new plants are arriving every week!",
+      "heroBodyExtra": "Start your season with early pansies and perennials that come back year after year. Need deer-resistant options? We can help with that, too.",
+      "ctaText": "Visit Us This Weekend",
+      "ctaHref": "/visit",
+      "heroImages": [
+        {
+          "src": "/images/seasonal/spring/spring_flowers.png",
+          "alt": "Bright spring flowers on display at the nursery"
+        },
+        {
+          "src": "/images/seasonal/spring/spring_flower_display.jpg",
+          "alt": "Spring flower display tables at Heather Hill Gardens"
+        }
+      ],
+      "hours": "Wed–Fri noon–5:00pm · Sat 9:30am–5:00pm · Sun 11am–5:00pm",
+      "announcement": "We're open! New plants arriving weekly.",
+      "seasonStart": "2026-04-03",
+      "schedule": {
+        "0": { "name": "Sunday",    "open": "11:00", "close": "17:00", "openDisplay": "11am",    "closeDisplay": "5pm" },
+        "3": { "name": "Wednesday", "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
+        "4": { "name": "Thursday",  "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
+        "5": { "name": "Friday",    "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
+        "6": { "name": "Saturday",  "open": "09:30", "close": "17:00", "openDisplay": "9:30am",  "closeDisplay": "5pm" }
+      }
+    },
+    "fall": {
+      "heroHeadline": "Celebrate Fall!",
+      "heroBody": "It's October and we're decorating for fall! Nothing says 'Fall' quite like piles of pumpkins, masses of mums, and pots of pansies. We have all of that and more for your decor and winter garden color.",
+      "heroBodyExtra": "We have orange pumpkins and those special white pumpkins that seem to take Fall decor up a notch. Whether you want to carve your pumpkins, decorate them with paint and markers, or just enjoy their natural beauty, we have what you need. Now is the time to plant mums or scatter pots of mums around your porch, your deck, or your yard. It's also time to plant winter pansies! These hardy plants will add color to your yard through the winter and into the spring.",
+      "ctaText": "Come See Our Fall Display",
+      "ctaHref": "/visit",
+      "heroImages": [
+        {
+          "src": "/images/seasonal/fall/Pumpkin Display.jpg",
+          "alt": "Pumpkin display at Heather Hill Gardens"
+        },
+        {
+          "src": "/images/seasonal/fall/PumpkinsAndMums.jpg",
+          "alt": "Pumpkins and mums arranged for fall"
+        },
+        {
+          "src": "/images/seasonal/fall/flowers.jpg",
+          "alt": "Seasonal flowers in bloom"
+        }
+      ],
+      "hours": "Wed–Fri noon–5pm · Sat 10am–5pm · Sun 11am–5pm",
+      "announcement": "Pumpkins, mums, and winter pansies are here!",
+      "schedule": {
+        "0": { "name": "Sunday",    "open": "11:00", "close": "17:00", "openDisplay": "11am",   "closeDisplay": "5pm" },
+        "3": { "name": "Wednesday", "open": "12:00", "close": "17:00", "openDisplay": "noon",   "closeDisplay": "5pm" },
+        "4": { "name": "Thursday",  "open": "12:00", "close": "17:00", "openDisplay": "noon",   "closeDisplay": "5pm" },
+        "5": { "name": "Friday",    "open": "12:00", "close": "17:00", "openDisplay": "noon",   "closeDisplay": "5pm" },
+        "6": { "name": "Saturday",  "open": "10:00", "close": "17:00", "openDisplay": "10am",   "closeDisplay": "5pm" }
+      }
+    }
+  }
+}

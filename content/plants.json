@@ -1,0 +1,407 @@
+{
+  "intro": "Even though we are surrounded by beautiful plants all day, we can't help choosing favorites each season. We're proud to carry native plants suited to Northern Virginia — species that thrive in our climate and support local pollinators. Come in and tell us about your growing conditions (sun, drainage, other plantings) and we'll help you choose the plants that are right for your Virginia gardens and containers.",
+  "categories": [
+    {
+      "id": "annuals",
+      "name": "Annuals",
+      "description": "Annuals are garden plants that give you all their glory in their first year. They may live for several years in another climate, but here they generally last just one year.",
+      "whyUseThem": "Annuals provide an instant pop of color and usually cost less than perennials. In addition, most will bloom all summer long, giving you lots of nonstop color.",
+      "pageIntro": "Annuals can make such a difference in your garden! They provide bright beautiful color all season long. In fact, we have so many annuals coming in throughout the summer, we're having a hard time choosing our favorites! Check back later for the latest list, or come see us to find the annuals that will work best for you.",
+      "image": "/images/plants/annuals/AnnualforFavePlants.jpg",
+      "imageCaption": "Proven Winner® Basket",
+      "plants": []
+    },
+    {
+      "id": "perennials",
+      "name": "Perennials",
+      "description": "Perennials are plants that will return each season, living year after year. Look for our native selections — plants indigenous to Northern Virginia that support local ecosystems and are naturally adapted to our soil and climate.",
+      "whyUseThem": "Perennials are helpers in your garden. Once you plant your perennials, they will come up each year without the work and expense of shopping and planting. In addition, perennials provide a structure for your garden so that you can showcase annuals, containers, or your favorite yard art. Once they are established, some perennials will grow large enough to divide, giving you a new plant for somewhere else in your yard. Come on in and we'll show you how.",
+      "pageIntro": "We just love perennials. They take so much of the work out of gardening. Plant them once and enjoy them for years to come. Great for gardens and containers! Our collection has been selected to thrive in Northern Virginia. Call for availability.",
+      "image": "/images/plants/perennials/PerennialforFavePlants.jpg",
+      "imageCaption": "Columbine",
+      "plants": [
+        {
+          "name": "Heuchera (Coral Bells)",
+          "description": "Also known as coral bells, Heuchera boasts brightly colored leaves for ten months of the year and dainty flowers in early summer. They are terrific in containers and in the garden; we like to mix them with hostas and ferns. These hardworking favorites make a wonderful border and thrive in shade or part shade. Native.",
+          "tags": ["shade", "part-shade", "containers", "native"],
+          "varieties": [
+            {
+              "name": "Black Currant",
+              "trademark": "Proven Winner",
+              "description": "Dark purple leaf with silver accents. This gorgeous heuchera contrasts beautifully with any white and green hosta.",
+              "image": "/images/plants/perennials/HeucheraBlackCurrant2.jpg"
+            },
+            {
+              "name": "Key Lime Pie",
+              "trademark": null,
+              "description": "This bright lime green foliage brightens pots and flower beds. Enjoy the dainty pink flowers in the spring.",
+              "image": "/images/plants/perennials/HeucheraKeyLime2.jpg"
+            },
+            {
+              "name": "Georgia Peach",
+              "trademark": null,
+              "description": "This heuchera is perfectly suited to our Virginia climate. These peach-colored leaves provide color throughout the growing season.",
+              "image": "/images/plants/perennials/HeucheraGeorgiaPeach.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Veronica",
+          "description": "Intensely brilliant blue flowers smother the low growing foliage of this creeping plant. The bright blue lights up the garden when little else is growing from March into April. It grows 3\" tall and is deer resistant. Perennial that loves sun or mostly sunny areas.",
+          "tags": ["deer-resistant", "sun", "spring-blooming"],
+          "varieties": [
+            {
+              "name": "Georgia Blue",
+              "trademark": null,
+              "description": "Intensely brilliant blue flowers smother the low growing foliage of this creeping plant. The bright blue lights up the garden when little else is growing from March into April.",
+              "image": "/images/plants/perennials/VeronicaGeorgiaBlue.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Japanese Painted Fern",
+          "description": "Lovely silvery fronds with purple accents. This versatile fern loves shade and is deer resistant. We love it paired with Charmed Wine Oxalis and pink begonias.",
+          "tags": ["deer-resistant", "shade"],
+          "varieties": [
+            {
+              "name": "Japanese Painted Fern",
+              "trademark": null,
+              "description": "Lovely silvery fronds with purple accents. This versatile fern loves shade and is deer resistant. We love it paired with Charmed Wine Oxalis and pink begonias.",
+              "image": "/images/plants/perennials/JapanesePaintedFern.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Baptisia",
+          "description": "With spikes of pretty blooms from May into June, this flowering perennial has everything going for it. Very easy to grow and vigorous, it is deer resistant, long lived, and has a pretty \"bush\" like shape when not in bloom. Blooms May into June. We recommend any of the Baptisia for full sun or afternoon sun. Native.",
+          "tags": ["deer-resistant", "sun", "native", "easy-to-grow"],
+          "varieties": [
+            {
+              "name": "Baptisia australis (Blue Wild Indigo)",
+              "trademark": null,
+              "description": "The true native Baptisia with stunning blue flower spikes in late spring. A Virginia native wildflower that supports local pollinators.",
+              "image": "/images/plants/perennials/BaptisiaAustralis.webp"
+            },
+            {
+              "name": "Carolina Moonlight",
+              "trademark": null,
+              "description": "Soft butter-yellow flower spikes on sturdy upright stems. A gorgeous complement to the classic blue Baptisia.",
+              "image": "/images/plants/perennials/BaptisiaCarolinaMoonlight (2).jpg"
+            },
+            {
+              "name": "Purple Smoke",
+              "trademark": null,
+              "description": "Smoky violet-purple blooms on dark charcoal stems create a striking display in late spring. A vigorous grower.",
+              "image": "/images/plants/perennials/BaptisiaPurpleSmoke(2).jpg"
+            }
+          ]
+        },
+        {
+          "name": "Hosta",
+          "description": "These hardworking perennials are the backbone of many beautiful gardens and container plantings.",
+          "tags": ["shade", "containers"],
+          "varieties": [
+            {
+              "name": "Coconut Custard",
+              "trademark": null,
+              "description": "What a cute little mini hosta! It has yellow heart-shaped leaves, very symmetrical on a 6\" tall mound. Vigorous and sturdy, it will add a spot of color in every shady garden. The blooms are held neatly above the leaves and the light purple color contrast nicely with the leaves. Our hosta aficionados will appreciate the purple petioles and the heavy substance of the waxy leaves.",
+              "image": "/images/plants/hostas/CoconutCustard.jpg"
+            },
+            {
+              "name": "Cracker Crumbs",
+              "trademark": null,
+              "description": "Bright chartreuse leaves with a shiny dark green margin on another cute mini hosta. This one has a good growth rate filling in its little spot in the front of the garden. It will grow to 6\" tall and has lavender flowers in July. You will love this cutie!",
+              "image": "/images/plants/hostas/CrackerCrumbs.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Creeping Phlox",
+          "description": "You know spring is here when you see the cheerful blooms covering the entire plant! Grows 6\" tall and likes lots of sun. We love creeping phlox because it is so colorful when the rest of our garden is still asleep. Evergreen, blooms end of March through April. Native.",
+          "tags": ["sun", "native", "evergreen", "spring-blooming"],
+          "varieties": [
+            {
+              "name": "Creeping Phlox",
+              "trademark": null,
+              "description": "You know spring is here when you see the cheerful blooms covering the entire plant! Grows 6\" tall and likes lots of sun.",
+              "image": "/images/plants/perennials/CreepingPhlox(2).jpg"
+            }
+          ]
+        },
+        {
+          "name": "Bleeding Heart",
+          "description": "We never imagined there could be an improvement over our grandmother's bleeding heart, but here it is. Pink flowers appear all season long. This is deer resistant and grows 10\" to 12\" tall. It enjoys shade or part shade, perfect for the front of the border or in a container.",
+          "tags": ["deer-resistant", "shade", "part-shade", "containers"],
+          "varieties": [
+            {
+              "name": "Everblooming Bleeding Heart",
+              "trademark": null,
+              "description": "We never imagined there could be an improvement over our grandmother's bleeding heart, but here it is. Pink flowers appear all season long. This is deer resistant and grows 10\" to 12\" tall. It enjoys shade or part shade, perfect for the front of the border or in a container.",
+              "image": "/images/plants/perennials/BleedingHeart(2).jpg"
+            }
+          ]
+        },
+        {
+          "name": "Nepeta",
+          "description": "Spikes of purple blooms begin in early summer and continue throughout the season. Attractive to hummingbirds and butterflies, but deer resistant! Grows to 18\" tall and loves sun.",
+          "tags": ["deer-resistant", "sun", "hummingbirds", "butterflies"],
+          "varieties": [
+            {
+              "name": "Nepeta",
+              "trademark": null,
+              "description": "Spikes of purple blooms begin in early summer and continue throughout the season. Attractive to hummingbirds and butterflies, but deer resistant! Grows to 18\" tall and loves sun.",
+              "image": "/images/plants/perennials/Nepeta(2).jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "herbs",
+      "name": "Herbs",
+      "description": "Herbs are the heroes of the garden world. Generally, they are simple to grow, beautiful to look at, and useful in the kitchen. Come in to see our selection and learn how to grow and use these hardworking treasures. We'll be happy to help you find the right selection of herbs for your kitchen garden. Call for availability.",
+      "additionalInfo": "There are so many herbs to choose from! You can plant your herbs in your garden or in containers. You can even mix them in with your other plantings. Remember to keep your herb plantings away from chemicals and pesticides.",
+      "overviewDescription": "Herbs are so versatile! They add beauty to our gardens and containers and they can add flavor and creativity to our food. We offer culinary herbs, bug repellent herbs, scented herbs, and more. Great for gardens and containers. Keep a pot of fresh herbs in your kitchen!",
+      "image": "/images/plants/herbs/HerbTableforWeb.jpg",
+      "imageCaption": "Herb Table",
+      "featuredImages": [
+        {
+          "src": "/images/plants/herbs/BasilGenovese.jpg",
+          "alt": "Basil Genovese",
+          "caption": "Basil - Genovese"
+        },
+        {
+          "src": "/images/plants/herbs/BasilPerpetuoVariegated.jpg",
+          "alt": "Basil Perpetuo Variegated",
+          "caption": "Basil - Perpetuo Variegated"
+        },
+        {
+          "src": "/images/plants/herbs/ParsleyCurly.jpg",
+          "alt": "Parsley Curly",
+          "caption": "Parsley - Curly"
+        },
+        {
+          "src": "/images/plants/herbs/ParsleyFlat.jpg",
+          "alt": "Parsley Flat",
+          "caption": "Parsley - Flat"
+        },
+        {
+          "src": "/images/plants/herbs/Peppermint.jpg",
+          "alt": "Peppermint",
+          "caption": "Peppermint"
+        },
+        {
+          "src": "/images/plants/herbs/SageTricolor.jpg",
+          "alt": "Sage Tricolor",
+          "caption": "Sage - Tricolor"
+        }
+      ],
+      "plants": [
+        { "name": "Basil", "variety": "Genovese" },
+        { "name": "Basil", "variety": "Italian Large Leaf" },
+        { "name": "Basil", "variety": "Red Rubin" },
+        { "name": "Basil", "variety": "Spicy Globe" },
+        { "name": "Basil", "variety": "Thai" },
+        { "name": "Catnip", "variety": null },
+        { "name": "Catmint", "variety": null },
+        { "name": "Chamomile", "variety": null },
+        { "name": "Chives", "variety": "Onion" },
+        { "name": "Chives", "variety": "Garlic" },
+        { "name": "Coriander", "variety": null },
+        { "name": "Cilantro", "variety": null },
+        { "name": "Curry", "variety": null },
+        { "name": "Dianthus", "variety": null },
+        { "name": "Dill", "variety": null },
+        { "name": "Echinacea", "variety": null },
+        { "name": "Fennel", "variety": null },
+        { "name": "Mint", "variety": "Apple" },
+        { "name": "Mint", "variety": "Chocolate" },
+        { "name": "Mint", "variety": "Ky Colonel" },
+        { "name": "Mint", "variety": "Mint Julep" },
+        { "name": "Mint", "variety": "Mint the Best" },
+        { "name": "Mint", "variety": "Peppermint" },
+        { "name": "Mint", "variety": "Spearmint" },
+        { "name": "Lavender", "variety": "Dutch" },
+        { "name": "Lavender", "variety": "Grosso" },
+        { "name": "Lavender", "variety": "Provence" },
+        { "name": "Lavender", "variety": "Spanish" },
+        { "name": "Lemon Balm", "variety": null },
+        { "name": "Lemon Grass", "variety": null },
+        { "name": "Lemon Verbena", "variety": null },
+        { "name": "Oregano", "variety": "Greek" },
+        { "name": "Oregano", "variety": "Italian" },
+        { "name": "Oregano", "variety": "Kent Beauty" },
+        { "name": "Oregano", "variety": "Spicy" },
+        { "name": "Parsley", "variety": "Curly" },
+        { "name": "Parsley", "variety": "Italian" },
+        { "name": "Patchouli", "variety": null },
+        { "name": "Rosemary", "variety": "Arp" },
+        { "name": "Rosemary", "variety": "BBQ" },
+        { "name": "Rosemary", "variety": "Creeping" },
+        { "name": "Rosemary", "variety": "Hill Hardy" },
+        { "name": "Rue", "variety": null },
+        { "name": "Sage", "variety": "Dwarf" },
+        { "name": "Sage", "variety": "Berggarten" },
+        { "name": "Sage", "variety": "Golden" },
+        { "name": "Sage", "variety": "Pineapple" },
+        { "name": "Sage", "variety": "Purple" },
+        { "name": "Sage", "variety": "Tricolor" },
+        { "name": "Savory", "variety": "Winter" },
+        { "name": "Scented Geraniums", "variety": null },
+        { "name": "St. John's Wort", "variety": null },
+        { "name": "Stevia", "variety": null },
+        { "name": "Sweet Marjoram", "variety": null },
+        { "name": "Tarragon", "variety": "French" },
+        { "name": "Thyme", "variety": "Elfin" },
+        { "name": "Thyme", "variety": "English" },
+        { "name": "Thyme", "variety": "French" },
+        { "name": "Thyme", "variety": "Golden Edge" },
+        { "name": "Thyme", "variety": "Lemon" },
+        { "name": "Thyme", "variety": "Oregano" },
+        { "name": "Thyme", "variety": "Spicy Orange" },
+        { "name": "Thyme", "variety": "Silver Edge" },
+        { "name": "Vietnamese Cilantro", "variety": null }
+      ]
+    },
+    {
+      "id": "hostas",
+      "name": "Hostas",
+      "description": "These hardworking perennials are the backbone of many beautiful shade gardens and container plantings. Come in to see our selection; these lovely and versatile plants will capture your heart. Call for availability.",
+      "additionalInfo": "We are huge hosta fans! It's hardy, versatile, and quietly beautiful. Hosta works hard year after year to add structure and variety to your pots and gardens. Here are a few of our favorites:",
+      "overviewDescription": "Yes, hostas are perennials, but they are so hardworking, they deserve their own page! Plant these reliable specimens once and they will come back every year, providing texture, color, and a wonderful backdrop for your annuals and other perennials.",
+      "closingText": "Hostas come in so many different colors and sizes. Choose from different leaf shapes and a wide range of greens with solid colors or variegated leaves. Plant them in the shade to create structure in your garden that comes back year after year. Hostas even work well in containers. We recommend and carry these hostas for your Virginia gardens and containers:",
+      "image": "/images/plants/hostas/MilleniumHosta240w.jpg",
+      "imageCaption": "Millenium Hosta",
+      "featured": [
+        {
+          "name": "Blue Mouse Ears",
+          "description": "We think this hosta is as cute as a button! This compact blue-green hosta is perfect for the edge of the shade garden or starring in your favorite container. This hosta truly plays well with others.",
+          "image": "/images/plants/hostas/HostaBlueMouseEars.jpg"
+        },
+        {
+          "name": "Empress Wu",
+          "description": "The Empress is a real attention getter! Growing as tall as three feet, this is one of the largest hostas you can buy. When it blooms, this regal beauty displays lovely light lavender flowers.",
+          "image": "/images/plants/hostas/HostaEmpressWu.jpg"
+        },
+        {
+          "name": "June",
+          "description": "The June hosta adds unusual color to your plantings with its bluish leaves and golden variegation in the center of the leaves. The variegation will range from charteuse in heavy shade to creamy yellow in light shade or part sun. This hosta does really well in our area, increasing every year. When it blooms, you'll enjoy pale lavender flowers.",
+          "image": "/images/plants/hostas/HostaJune.jpg"
+        },
+        {
+          "name": "First Frost",
+          "description": "First Frost is admired for its intense blue-green leaves with edges that shift from light gold to a creamier shade as the summer approaches. This hosta remains compact and features lavender flowers. First Frost was selected as 2010 Hosta of the Year.",
+          "image": "/images/plants/hostas/HostaFirstFrost.jpg"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/images/plants/hostas/HostaBlueMouseEars.jpg",
+          "name": "Blue Mouse Ears Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaCrackerCrumbs.jpg",
+          "name": "Cracker Crumbs Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaDragontails.jpg",
+          "name": "Dragontails Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaEarthAngel.jpg",
+          "name": "Earth Angel Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaEmpressWu.jpg",
+          "name": "Empress Wu Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaFirstFrost.jpg",
+          "name": "First Frost Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaFrancee.jpg",
+          "name": "Francee Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaFrostedMouseEars.jpg",
+          "name": "Frosted Mouse Ears Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaHolyMouseEars.jpg",
+          "name": "Holy Mouse Ears Hosta"
+        },
+        { "src": "/images/plants/hostas/HostaJune.jpg", "name": "June Hosta" },
+        {
+          "src": "/images/plants/hostas/HostaStainedGlass.jpg",
+          "name": "Stained Glass Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaLiberty2.jpg",
+          "name": "Liberty Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaLimeSmoothie.jpg",
+          "name": "Lime Smoothie Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaMillenium.jpg",
+          "name": "Millenium Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaOrangeMarmalade.jpg",
+          "name": "Orange Marmalade Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaPaulsGlory.jpg",
+          "name": "Paul's Glory Hosta"
+        },
+        {
+          "src": "/images/plants/hostas/HostaPixieVamp.jpg",
+          "name": "Pixie Vamp Hosta"
+        }
+      ],
+      "plants": [
+        "American Halo",
+        "Bailey's Cream",
+        "Barbara May",
+        "Candy Dish",
+        "Cathedral Windows",
+        "Cherish",
+        "Cracker Crumbs",
+        "Curly Fries",
+        "Dragon Tails",
+        "Dream Weaver",
+        "Earth Angel",
+        "Empress Wu",
+        "Final Summation",
+        "First Frost",
+        "Francee",
+        "Frost Giant",
+        "Frosted Mouse",
+        "Ginsu Knife",
+        "Guacamole",
+        "Holy Mouse Ears",
+        "Honey Pie",
+        "June",
+        "Lime Smoothie",
+        "Margie's Angel",
+        "Millennium",
+        "Night Shift",
+        "Orange Marmalade",
+        "Paul's Glory",
+        "Pearly Gates",
+        "Pixie Vamp",
+        "Sagae",
+        "Stained Glass",
+        "Star Power",
+        "Summer Squall",
+        "Tiny Bubbles",
+        "Wheee"
+      ],
+      "specialNotes": {
+        "Dream Weaver": "Discovered here at Heather Hill!"
+      }
+    }
+  ]
+}
