@@ -77,6 +77,12 @@
           "tags": ["deer-resistant", "sun", "native", "easy-to-grow"],
           "varieties": [
             {
+              "name": "Baptisia australis (Blue Wild Indigo)",
+              "trademark": null,
+              "description": "The true native Baptisia with stunning blue flower spikes in late spring. A Virginia native wildflower that supports local pollinators.",
+              "image": "/images/BaptisiaAustralis.webp"
+            },
+            {
               "name": "Carolina Moonlight",
               "trademark": null,
               "description": null,

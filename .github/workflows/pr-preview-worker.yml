@@ -1,0 +1,273 @@
+name: PR Cloudflare Worker Preview Deployment
+
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number || inputs.pr_number || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - closed
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request number to preview
+        required: true
+        type: number
+      retire_preview:
+        description: Retire the preview alias instead of updating it with PR content
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Resolve PR metadata
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
+          EVENT_PR_HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          EVENT_PR_BASE_REPO: ${{ github.repository }}
+          EVENT_PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+          EVENT_ACTION: ${{ github.event.action }}
+          RETIRE_INPUT: ${{ inputs.retire_preview }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            PR_JSON="$(gh pr view "$INPUT_PR_NUMBER" -R "$GITHUB_REPOSITORY" --json number,url,headRefName,headRepositoryOwner,headRepository,baseRefName)"
+            PR_NUMBER="$(printf '%s' "$PR_JSON" | jq -r '.number')"
+
+            if [ "$RETIRE_INPUT" = "true" ]; then
+              CHECKOUT_REF="refs/heads/$(printf '%s' "$PR_JSON" | jq -r '.baseRefName')"
+              MODE="retire"
+            else
+              CHECKOUT_REF="refs/pull/${PR_NUMBER}/merge"
+              MODE="preview"
+            fi
+
+            SAME_REPO="true"
+          else
+            PR_NUMBER="$EVENT_PR_NUMBER"
+
+            if [ "$EVENT_ACTION" = "closed" ]; then
+              CHECKOUT_REF="refs/heads/${EVENT_PR_BASE_REF}"
+              MODE="retire"
+            else
+              CHECKOUT_REF="refs/pull/${PR_NUMBER}/merge"
+              MODE="preview"
+            fi
+
+            if [ "$EVENT_PR_HEAD_REPO" = "$EVENT_PR_BASE_REPO" ]; then
+              SAME_REPO="true"
+            else
+              SAME_REPO="false"
+            fi
+          fi
+
+          echo "number=${PR_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "checkout_ref=${CHECKOUT_REF}" >> "$GITHUB_OUTPUT"
+          echo "same_repo=${SAME_REPO}" >> "$GITHUB_OUTPUT"
+          echo "mode=${MODE}" >> "$GITHUB_OUTPUT"
+
+      - name: Skip forked pull requests
+        if: steps.pr.outputs.same_repo != 'true'
+        run: echo "Skipping preview deployment for forked pull requests because repository secrets are unavailable." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Checkout repository ref
+        if: steps.pr.outputs.same_repo == 'true'
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ steps.pr.outputs.checkout_ref }}
+
+      - name: Setup Node.js
+        if: steps.pr.outputs.same_repo == 'true'
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        if: steps.pr.outputs.same_repo == 'true'
+        run: npm ci
+
+      - name: Upload preview version
+        if: steps.pr.outputs.same_repo == 'true' && steps.pr.outputs.mode == 'preview'
+        id: preview
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          PREVIEW_ALIAS="pr-${PR_NUMBER}"
+          LOG_FILE="$RUNNER_TEMP/wrangler-preview.log"
+
+          npx wrangler versions upload \
+            --preview-alias "$PREVIEW_ALIAS" \
+            --message "PR #${PR_NUMBER} preview" \
+            2>&1 | tee "$LOG_FILE"
+
+          PREVIEW_URL="$(grep -Eo 'https://[^ ]+workers\.dev' "$LOG_FILE" | tail -n 1)"
+
+          if [ -z "$PREVIEW_URL" ]; then
+            PREVIEW_HOST="$(grep -Eo '[[:alnum:]-]+\.[[:alnum:].-]+\.workers\.dev' "$LOG_FILE" | tail -n 1)"
+            if [ -n "$PREVIEW_HOST" ]; then
+              PREVIEW_URL="https://${PREVIEW_HOST}"
+            fi
+          fi
+
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "::error::Could not determine preview URL from Wrangler output."
+            exit 1
+          fi
+
+          echo "alias=${PREVIEW_ALIAS}" >> "$GITHUB_OUTPUT"
+          echo "url=${PREVIEW_URL}" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "Preview alias: \`${PREVIEW_ALIAS}\`"
+            echo
+            echo "Preview URL: ${PREVIEW_URL}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Retire preview version
+        if: steps.pr.outputs.same_repo == 'true' && steps.pr.outputs.mode == 'retire'
+        id: retired
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          PREVIEW_ALIAS="pr-${PR_NUMBER}"
+          LOG_FILE="$RUNNER_TEMP/wrangler-preview-retire.log"
+          RETIRED_SCRIPT="$RUNNER_TEMP/retired-preview-worker.ts"
+          RETIRED_CONFIG="$RUNNER_TEMP/retired-preview-wrangler.jsonc"
+
+          WORKER_NAME="$(node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('wrangler.jsonc','utf8').replace(/\/\/.*/g,'')).name)")"
+          COMPAT_DATE="$(node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('wrangler.jsonc','utf8').replace(/\/\/.*/g,'')).compatibility_date)")"
+
+          cat > "$RETIRED_SCRIPT" <<'EOF'
+          export default {
+            async fetch(): Promise<Response> {
+              return new Response('This pull request preview has been retired.', {
+                status: 410,
+                headers: {
+                  'content-type': 'text/plain; charset=utf-8',
+                  'cache-control': 'no-store',
+                },
+              });
+            },
+          };
+          EOF
+
+          cat > "$RETIRED_CONFIG" <<EOF
+          {
+            "name": "${WORKER_NAME}",
+            "compatibility_date": "${COMPAT_DATE}",
+            "workers_dev": true,
+            "observability": {
+              "logs": {
+                "enabled": true,
+                "invocation_logs": true
+              }
+            }
+          }
+          EOF
+
+          npx wrangler versions upload "$RETIRED_SCRIPT" \
+            -c "$RETIRED_CONFIG" \
+            --name "$WORKER_NAME" \
+            --compatibility-date "$COMPAT_DATE" \
+            --preview-alias "$PREVIEW_ALIAS" \
+            --message "PR #${PR_NUMBER} preview retired" \
+            2>&1 | tee "$LOG_FILE"
+
+          PREVIEW_URL="$(grep -Eo 'https://[^ ]+workers\.dev' "$LOG_FILE" | tail -n 1)"
+
+          if [ -z "$PREVIEW_URL" ]; then
+            PREVIEW_HOST="$(grep -Eo '[[:alnum:]-]+\.[[:alnum:].-]+\.workers\.dev' "$LOG_FILE" | tail -n 1)"
+            if [ -n "$PREVIEW_HOST" ]; then
+              PREVIEW_URL="https://${PREVIEW_HOST}"
+            fi
+          fi
+
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "::error::Could not determine preview URL from Wrangler output."
+            exit 1
+          fi
+
+          echo "alias=${PREVIEW_ALIAS}" >> "$GITHUB_OUTPUT"
+          echo "url=${PREVIEW_URL}" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "Retired preview alias: \`${PREVIEW_ALIAS}\`"
+            echo
+            echo "Retired preview URL: ${PREVIEW_URL}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment preview status on pull request
+        if: steps.pr.outputs.same_repo == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          PREVIEW_ALIAS: ${{ steps.preview.outputs.alias || steps.retired.outputs.alias }}
+          PREVIEW_URL: ${{ steps.preview.outputs.url || steps.retired.outputs.url }}
+          PREVIEW_MODE: ${{ steps.pr.outputs.mode }}
+        run: |
+          MARKER="<!-- worker-preview-url -->"
+          BODY_FILE="$RUNNER_TEMP/pr-preview-comment.md"
+
+          if [ "$PREVIEW_MODE" = "retire" ]; then
+            cat > "$BODY_FILE" <<EOF
+          ${MARKER}
+          Preview retired because this pull request was closed.
+
+          - Alias: \`${PREVIEW_ALIAS}\`
+          - URL: ${PREVIEW_URL}
+
+          This alias now serves a retired-preview response instead of PR content.
+          EOF
+          else
+            cat > "$BODY_FILE" <<EOF
+          ${MARKER}
+          Preview deployment updated.
+
+          - URL: ${PREVIEW_URL}
+          - Alias: \`${PREVIEW_ALIAS}\`
+
+          This URL is a non-production Wrangler preview for this pull request.
+          EOF
+          fi
+
+          EXISTING_COMMENT_IDS="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
+            --paginate \
+            --jq '.[] | select(.body | contains("<!-- worker-preview-url -->")) | .id')"
+
+          if [ -n "$EXISTING_COMMENT_IDS" ]; then
+            printf '%s\n' "$EXISTING_COMMENT_IDS" | while IFS= read -r COMMENT_ID; do
+              if [ -n "$COMMENT_ID" ]; then
+                gh api "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" \
+                  --method DELETE \
+                  >/dev/null
+              fi
+            done
+          fi
+
+          BODY="$(cat "$BODY_FILE")"
+          gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
+            --method POST \
+            -f body="$BODY" \
+            >/dev/null

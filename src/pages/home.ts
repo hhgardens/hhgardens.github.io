@@ -42,7 +42,7 @@ export function homePage(ctx: PageContext): string {
         </a>
         <a href="/plants#perennials" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
-            <img src="/images/BaptisiaCarolinaMoonlight (2).jpg" alt="Native Baptisia in bloom at the nursery" loading="lazy">
+            <img src="/images/BaptisiaAustralis.webp" alt="Blue wild indigo (Baptisia australis) in bloom" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Native Plants</h3>
