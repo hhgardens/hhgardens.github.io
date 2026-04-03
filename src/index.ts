@@ -127,6 +127,11 @@ export default {
       );
     }
 
+    // Legacy /Recipes/... → /recipes/... (case-insensitive folder redirect)
+    if (path.toLowerCase().startsWith("/recipes/") && path !== path.toLowerCase()) {
+      return Response.redirect(new URL("/recipes/" + path.slice("/recipes/".length), url.origin).toString(), 301);
+    }
+
     // Check legacy redirects (try raw path segment without leading slash)
     const bare = path.startsWith("/") ? path.slice(1) : path;
     const decodedBare = decodeURIComponent(bare);
