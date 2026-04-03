@@ -86,9 +86,11 @@ export function layout({ title, description, content, site, season, activeSeason
   {
     "@context": "https://schema.org",
     "@type": "GardenStore",
+    "additionalType": "https://schema.org/LocalBusiness",
     "@id": "https://heatherhillgardens.com/#garden-store",
     "name": "${site.name}",
-    "description": "Family-owned plant nursery and garden center in Fairfax Station, Virginia specializing in native plants, unusual perennials, hostas, herbs, annuals, and ceramic pots.",
+    "alternateName": "Heather Hill Gardens Farmers Market",
+    "description": "Family-owned plant nursery, garden center, and farmers market in Fairfax Station, Virginia specializing in native plants, unusual perennials, hostas, herbs, annuals, and ceramic pots.",
     "url": "${canonicalUrl || 'https://heatherhillgardens.com'}",
     "telephone": "(703) 690-6060",
     "email": "${site.email}",
