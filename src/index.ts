@@ -61,16 +61,11 @@ function getDynamicAnnouncement(season: SeasonPreset): string | null {
     season.schedule[dayOfWeek.toString()];
 
   if (todaySchedule) {
-    const [openH, openM] = todaySchedule.open.split(":").map(Number);
     const [closeH, closeM] = todaySchedule.close.split(":").map(Number);
-    const openMin = openH * 60 + openM;
     const closeMin = closeH * 60 + closeM;
 
-    if (currentMinutes < openMin) {
-      return `Open today at ${todaySchedule.openDisplay}`;
-    }
     if (currentMinutes < closeMin) {
-      return `Open today until ${todaySchedule.closeDisplay}`;
+      return `Today's Hours: ${todaySchedule.openDisplay} – ${todaySchedule.closeDisplay}`;
     }
     // Past closing — fall through to "next open day"
   }
@@ -82,7 +77,7 @@ function getDynamicAnnouncement(season: SeasonPreset): string | null {
       season.schedule[nextDay.toString()];
     if (nextSchedule) {
       const label = i === 1 ? "tomorrow" : nextSchedule.name;
-      return `Opens ${label} at ${nextSchedule.openDisplay}`;
+      return `${label === "tomorrow" ? "Open tomorrow" : `Opens ${label}`}: ${nextSchedule.openDisplay} – ${nextSchedule.closeDisplay}`;
     }
   }
 
