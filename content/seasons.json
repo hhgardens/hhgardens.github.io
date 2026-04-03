@@ -23,7 +23,7 @@
     "spring": {
       "heroHeadline": "We're Open for the Season!",
       "heroBody": "Come see what's blooming — and new plants are arriving every week!",
-      "heroBodyExtra": "Start your season with early pansies and perennials that come back year after year. Need deer-resistant options? We can help with that, too.",
+      "heroBodyExtra": "Start your season with early pansies and perennials that come back year after year. Need deer-resistant options? We can help with that too.",
       "ctaText": "Visit Us This Weekend",
       "ctaHref": "/visit",
       "heroImages": [
@@ -40,11 +40,41 @@
       "announcement": "We're open! New plants arriving weekly.",
       "seasonStart": "2026-04-03",
       "schedule": {
-        "0": { "name": "Sunday",    "open": "11:00", "close": "17:00", "openDisplay": "11am",    "closeDisplay": "5pm" },
-        "3": { "name": "Wednesday", "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
-        "4": { "name": "Thursday",  "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
-        "5": { "name": "Friday",    "open": "12:00", "close": "17:00", "openDisplay": "noon",    "closeDisplay": "5pm" },
-        "6": { "name": "Saturday",  "open": "09:30", "close": "17:00", "openDisplay": "9:30am",  "closeDisplay": "5pm" }
+        "0": {
+          "name": "Sunday",
+          "open": "11:00",
+          "close": "17:00",
+          "openDisplay": "11am",
+          "closeDisplay": "5pm"
+        },
+        "3": {
+          "name": "Wednesday",
+          "open": "12:00",
+          "close": "17:00",
+          "openDisplay": "noon",
+          "closeDisplay": "5pm"
+        },
+        "4": {
+          "name": "Thursday",
+          "open": "12:00",
+          "close": "17:00",
+          "openDisplay": "noon",
+          "closeDisplay": "5pm"
+        },
+        "5": {
+          "name": "Friday",
+          "open": "12:00",
+          "close": "17:00",
+          "openDisplay": "noon",
+          "closeDisplay": "5pm"
+        },
+        "6": {
+          "name": "Saturday",
+          "open": "09:30",
+          "close": "17:00",
+          "openDisplay": "9:30am",
+          "closeDisplay": "5pm"
+        }
       }
     },
     "fall": {
