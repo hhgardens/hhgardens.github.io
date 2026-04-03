@@ -6,7 +6,7 @@ export function visitPage(ctx: PageContext): string {
   return `
     <section class="page-section">
       <h1 class="page-title">Visit Heather Hill Gardens</h1>
-      <p class="page-subtitle">Farmers' market featuring a variety of plants, vegetables, and produce, plus local honey.</p>
+      <p class="page-subtitle">Family-owned plant nursery and garden center specializing in native plants, perennials, hostas, herbs, and annuals.</p>
 
       <div class="info-grid">
         <div class="info-block">

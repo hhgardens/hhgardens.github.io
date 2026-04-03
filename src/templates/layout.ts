@@ -85,12 +85,15 @@ export function layout({ title, description, content, site, season, activeSeason
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "GardenStore",
+    "@id": "https://heatherhillgardens.com/#garden-store",
     "name": "${site.name}",
-    "description": "Farmers' market featuring a variety of plants, vegetables, and produce, plus local honey.",
+    "description": "Family-owned plant nursery and garden center in Fairfax Station, Virginia specializing in native plants, unusual perennials, hostas, herbs, annuals, and ceramic pots.",
     "url": "${canonicalUrl || 'https://heatherhillgardens.com'}",
     "telephone": "(703) 690-6060",
     "email": "${site.email}",
+    "image": "${ogImage || 'https://heatherhillgardens.com/images/og-hero-with-logo.jpg'}",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "8111 Ox Rd",
@@ -104,6 +107,17 @@ export function layout({ title, description, content, site, season, activeSeason
       "latitude": 38.7441,
       "longitude": -77.3285
     },
+    "areaServed": {
+      "@type": "State",
+      "name": "Northern Virginia"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "12:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:30", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "17:00" }
+    ],
     "sameAs": ["${site.facebook}"]
   }
   </script>

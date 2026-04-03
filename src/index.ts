@@ -117,9 +117,10 @@ export default {
 
     // sitemap.xml
     if (path === "/sitemap.xml") {
+      const today = new Date().toISOString().split("T")[0];
       const pages = ["/", "/plants", "/recipes", "/visit", "/about"];
       const entries = pages.map(
-        (p) => `  <url><loc>${origin}${p}</loc></url>`
+        (p) => `  <url><loc>${origin}${p}</loc><lastmod>${today}</lastmod></url>`
       ).join("\n");
       return new Response(
         `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`,
@@ -160,12 +161,12 @@ export default {
         break;
       case "/plants":
         title = `Our Plants — ${siteData.name}`;
-        description = "Explore our favorite annuals, perennials, herbs, and hostas at Heather Hill Gardens in Fairfax Station, Virginia.";
+        description = "Explore native plants, perennials, hostas, herbs, and annuals at Heather Hill Gardens — a plant nursery and garden center in Fairfax Station, Virginia.";
         pageContent = plantsPage(ctx);
         break;
       case "/recipes":
         title = `Herb Recipes — ${siteData.name}`;
-        description = "Download our favorite herb recipes — from lavender lemonade to genovese basil pesto.";
+        description = "Download our favorite herb recipes — Victorian lavender cream scones, lavender lemonade, genovese basil pesto, and more.";
         pageContent = recipesPage(ctx);
         break;
       case "/visit":
@@ -175,7 +176,7 @@ export default {
         break;
       case "/about":
         title = `About Us — ${siteData.name}`;
-        description = "The story of Heather Hill Gardens — a family nursery in Fairfax Station, Virginia.";
+        description = "The story of Heather Hill Gardens — a family-owned plant nursery and garden center in Fairfax Station, Virginia.";
         pageContent = aboutPage(ctx);
         break;
       default:
