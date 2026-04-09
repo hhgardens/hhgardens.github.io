@@ -11,10 +11,10 @@ export function notFoundPage(_ctx: PageContext): string {
       <div style="margin-top: var(--space-3xl); max-width: 480px; margin-left: auto; margin-right: auto;">
         <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: var(--space-lg);">You might be looking for:</p>
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center;">
-          <a href="/plants" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">Our Plants</a>
-          <a href="/recipes" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">Herb Recipes</a>
-          <a href="/visit" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">Visit Us</a>
-          <a href="/about" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">About</a>
+          <a href="/plants/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">Our Plants</a>
+          <a href="/recipes/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">Herb Recipes</a>
+          <a href="/visit/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">Visit Us</a>
+          <a href="/about/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">About</a>
         </div>
       </div>
     </section>

@@ -14,6 +14,15 @@ import type { SeasonPreset, ScheduleDay } from "./types";
 
 const redirects: Record<string, string> = redirectsData as Record<string, string>;
 const seasonDates = (seasonsData as { seasonDates: Record<string, string> }).seasonDates;
+const PAGE_ROUTES = new Set(["/plants", "/recipes", "/visit", "/about"]);
+
+function getCanonicalPath(path: string): string {
+  if (path === "/") {
+    return "/";
+  }
+
+  return PAGE_ROUTES.has(path) ? `${path}/` : path;
+}
 
 /** Determine which season is active based on today's date in Eastern time. */
 function getActiveSeason(eastern: Date): string {
@@ -94,12 +103,20 @@ function htmlResponse(html: string, status = 200): Response {
 export default {
   async fetch(request: Request, env: unknown): Promise<Response> {
     const url = new URL(request.url);
-    let path = url.pathname;
+    const requestPath = url.pathname;
+    let path = requestPath;
     const origin = url.origin;
 
     // Normalize: strip trailing slash except root
     if (path !== "/" && path.endsWith("/")) {
       path = path.slice(0, -1);
+    }
+
+    const canonicalPath = getCanonicalPath(path);
+
+    if (PAGE_ROUTES.has(path) && requestPath !== canonicalPath) {
+      url.pathname = canonicalPath;
+      return Response.redirect(url.toString(), 301);
     }
 
     // robots.txt
@@ -113,7 +130,7 @@ export default {
     // sitemap.xml
     if (path === "/sitemap.xml") {
       const today = new Date().toISOString().split("T")[0];
-      const pages = ["/", "/plants", "/recipes", "/visit", "/about"];
+      const pages = ["/", "/plants/", "/recipes/", "/visit/", "/about/"];
       const entries = pages.map(
         (p) => `  <url><loc>${origin}${p}</loc><lastmod>${today}</lastmod></url>`
       ).join("\n");
@@ -146,7 +163,7 @@ export default {
     let pageContent: string | null = null;
     let title = siteData.name;
     let description = siteData.metaDescription;
-    const canonicalUrl = `${origin}${path === "/" ? "" : path}`;
+    const canonicalUrl = `${origin}${canonicalPath}`;
     const ogImage = `${origin}/images/og-hero-with-logo.jpg`;
 
     switch (path) {
@@ -177,11 +194,11 @@ export default {
       default:
         // Let Wrangler handle static assets; if we get here it's a 404
         return htmlResponse(
-          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason, currentPath: path, noindex: true }),
+          layout({ title: `Not Found — ${siteData.name}`, description, content: notFoundPage(ctx), site: siteData, season, activeSeason, currentPath: canonicalPath, noindex: true }),
           404
         );
     }
 
-    return htmlResponse(layout({ title, description, content: pageContent, site: siteData, season, activeSeason, currentPath: path, canonicalUrl, ogImage }));
+    return htmlResponse(layout({ title, description, content: pageContent, site: siteData, season, activeSeason, currentPath: canonicalPath, canonicalUrl, ogImage }));
   },
 } satisfies ExportedHandler;

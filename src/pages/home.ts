@@ -31,7 +31,7 @@ export function homePage(ctx: PageContext): string {
 
     <section class="page-section">
       <div class="card-grid-3">
-        <a href="/plants" class="card" style="text-decoration:none;">
+        <a href="/plants/" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
             <img src="/images/plants/herbs/HerbTableforWeb.jpg" alt="Fresh herbs and plants" loading="lazy">
           </div>
@@ -40,7 +40,7 @@ export function homePage(ctx: PageContext): string {
             <p>Perennials, hostas, herbs, and annuals — chosen for Virginia gardens.</p>
           </div>
         </a>
-        <a href="/plants#perennials" class="card" style="text-decoration:none;">
+        <a href="/plants/#perennials" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
             <img src="/images/plants/perennials/BaptisiaAustralis.webp" alt="Blue wild indigo (Baptisia australis) in bloom" loading="lazy">
           </div>
@@ -49,7 +49,7 @@ export function homePage(ctx: PageContext): string {
             <p>Northern Virginia natives that thrive in our climate — beautiful, resilient, and low-maintenance.</p>
           </div>
         </a>
-        <a href="/recipes" class="card" style="text-decoration:none;">
+        <a href="/recipes/" class="card" style="text-decoration:none;">
           <div class="card-img-wrap">
             <img src="/images/plants/herbs/BasilGenovese.jpg" alt="Fresh basil" loading="lazy">
           </div>

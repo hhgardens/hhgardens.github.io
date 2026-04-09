@@ -56,7 +56,7 @@ export function aboutPage(ctx: PageContext): string {
         <p style="margin-bottom:var(--space-lg); line-height:1.8; font-size:0.975rem;">
           We're located at <strong>${site.address}</strong> — look for the blue Victorian house on Ox Road (Route 123). Our customers come from across Northern Virginia, including Alexandria, Arlington, Burke, Centreville, Fairfax, Falls Church, McLean, Reston, Springfield, Vienna, and beyond.
         </p>
-        <a href="/visit" class="btn btn-primary">Get Directions &amp; Hours</a>
+        <a href="/visit/" class="btn btn-primary">Get Directions &amp; Hours</a>
       </div>
     </section>
   `;

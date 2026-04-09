@@ -15,10 +15,10 @@ interface LayoutOptions {
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/plants", label: "Plants" },
-  { href: "/recipes", label: "Recipes" },
-  { href: "/visit", label: "Visit" },
-  { href: "/about", label: "About" },
+  { href: "/plants/", label: "Plants" },
+  { href: "/recipes/", label: "Recipes" },
+  { href: "/visit/", label: "Visit" },
+  { href: "/about/", label: "About" },
 ];
 
 export function layout({ title, description, content, site, season, activeSeason, currentPath, canonicalUrl, ogImage, noindex }: LayoutOptions): string {
